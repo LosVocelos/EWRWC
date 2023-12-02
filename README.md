@@ -17,12 +17,13 @@ These are the components (and their 3D models) I'm going to use in this projekt:
 
 TODO:
 
-- [x] Gather all sources
-- [x] Design chassis
-- [x] Print and ready the chassis
-- [x] Complete the hardware
-- [x] Write the software
+- [ ] Gather all sources
+- [ ] Design chassis
+- [ ] Print and ready the chassis
+- [ ] Complete the hardware
+- [ ] Write the software
 - [ ] Write the framework
 - [ ] Add some use for the camera
+- [ ] Write documentation
 - [ ] Finalize
 - [ ] Play with it :)
