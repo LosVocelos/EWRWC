@@ -4,16 +4,28 @@ Educational wheeled robot with camera
 ## Sources
 
 These are the components (and their 3D models) I'm going to use in this projekt:
+
+### Modules
+
 | Part | Component | Store page | 3D model |
 | ---------- | ---------- | ---------- | ---------- |
 | Brain (CPU) | Raspberry pi zero 2 w | [RPishop - Zero 2 w](https://rpishop.cz/zero/4311-raspberry-pi-zero-2-w-5056561800004.html) | [GrabCAD - Zero 2 w](https://grabcad.com/library/raspberry-pi-zero-2-w-1) |
-| Camera | Raspberry Pi NoIR kamera V2 | [RPishop - NoIR v2](https://rpishop.cz/mipi-kamerove-moduly/331-raspberry-pi-noir-kamera-modul-v2.html) | [Thingiverse - Rpi Camera v2.1](https://www.thingiverse.com/thing:2376448/files) |
-| DC motors | 2x 28BYJ-48 + ULN2003 | [Techfun - 28BYJ-48 + ULN2003](https://techfun.sk/produkt/krokovy-motor-28byj-48-modul-uln2003/)| [GrabCAD - 28BYJ-48 + ULN2003](https://grabcad.com/library/28byj-48-stepper-motor-and-uln2003-stepper-motor-driver-board-1) |
-| Servo (180°) | Tower Pro 180° MG90S | [LaskaKit - Tower Pro MG90S](https://www.laskakit.cz/mini-servo-mg90s-s-kovovymi-prevody/) | [Thingiverse - MG90S Tower Pro](https://www.thingiverse.com/thing:253557/files) |
-| Charger + Potection | TP4056 Micro USB | [Dratek - TP4056 Micro USB](https://dratek.cz/arduino/971-micro-usb-nabijecka-baterii.html) | [GrabCAD - TP4056 Micro USB](https://grabcad.com/library/tp4056-cargador-de-baterias-litio-lipo-5v-1a-1) |
+| Camera | Raspberry Pi camera V2 | [RPishop - camera v2](https://rpishop.cz/mipi-kamerove-moduly/329-raspberry-pi-kamera-modul-v2.html) | [Thingiverse - Rpi Camera v2.1](https://www.thingiverse.com/thing:2376448/files) |
+| 2x DC motor | 2x GA12-N20 6V 1000RPM | [LaskaKit - LA143024F](https://www.laskakit.cz/ga12-n20-6v-motor-s-prevodovkou/) | [GrabCAD - 28BYJ-48 + ULN2003](https://grabcad.com/library/28byj-48-stepper-motor-and-uln2003-stepper-motor-driver-board-1) |
+| Ball (support point) | Rotating ball 3PI N20 | [Laskakit - 3PI N20](https://www.laskakit.cz/univerzalni-otocna-koule-3pi-n20-v-plastovem-pouzdre/) | []() |
 | Battery holder | 18650 Li-Ion Holder | [LaskaKit - 18650 Holder](https://www.laskakit.cz/bateriovy-box-1x18650-dratove-vyvody/) | [GrabCAD - 18650 Holder](https://grabcad.com/library/18650-battery-holder-generic-1) |
-| Step-up converter | M 407 s MT3608 | [RadioKus - M 407](https://www.radiokus.cz/m-407-napajeci-modul-step-up-menic-2a-s-mt3608) | []() |
 | Battery | 18650 Li-Ion 3450mAh 10A | [LaskaKit - LG 18650 3450mAh](https://www.laskakit.cz/3600mah-lg-inr18650-m36-10a-18650-li-ion-baterie/) | []() |
+| Accel + Gyro + Magnet | MPU9250 | [LaskaKit - MPU9250](https://www.laskakit.cz/arduino-9dof-gyroskop-akcelerometr-magnetometr-mpu-9250-spi-iic/) | []() |
+| Laser distance sensor | I2C VL53L1X | [LaskaKit - VL53L1X](https://www.laskakit.cz/laserovy-senzor-vzdalenosti-vl53l1x-i2c/) | []() |
+| Light intensity sensor | I2C VELM7700 | [LaskaKit - VELM7700](https://www.laskakit.cz/snimac-intenzity-osvetleni-veml7700--i2c/) | []() |
+| Temp + humidity sensor | I2C SHT30 | [LaskaKit - SHT30](https://www.laskakit.cz/senzor-teploty-a-vlhkosti-vzduchu-sht30/) | []() |
+| Blue + Yellow OLED | SPI OLED 128x64 | [LaskaKit - OLED 0.96"](https://www.laskakit.cz/oled-displej-modry-a-zluty-128x64-0-96--spi/) | []() |
+
+
+### PCB
+
+| Part | Component | Store page |
+| ---------- | ---------- | ---------- |
 
 TODO:
 
