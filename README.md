@@ -11,10 +11,10 @@ These are the components (and their 3D models) I'm using in this project:
 | ---------- | ---------- | ---------- | ---------- |
 | Brain (CPU) | Raspberry pi zero 2 w | [RPishop - Zero 2 w](https://rpishop.cz/zero/4311-raspberry-pi-zero-2-w-5056561800004.html) | [GrabCAD - Zero 2 w](https://grabcad.com/library/raspberry-pi-zero-2-w-1) |
 | Camera | Raspberry Pi camera V2 | [RPishop - camera v2](https://rpishop.cz/mipi-kamerove-moduly/329-raspberry-pi-kamera-modul-v2.html) | [Thingiverse - Rpi Camera v2.1](https://www.thingiverse.com/thing:2376448/files) |
-| 2x DC motor | 2x GA12-N20 6V 1000RPM | [Techfun - 3V 50RPM](https://techfun.sk/produkt/dc-motorcek-s-prevodom-rozne-typy/?attribute_pa_motor=3v-500rpm) | [GrabCAD - 28BYJ-48 + ULN2003](https://grabcad.com/library/28byj-48-stepper-motor-and-uln2003-stepper-motor-driver-board-1) |
+| 2x DC motor | 2x GA12-N20 3V 500RPM | [Techfun - motor 3V 500RPM](https://techfun.sk/produkt/dc-motorcek-s-prevodom-rozne-typy/?attribute_pa_motor=3v-500rpm) | [GrabCAD - 28BYJ-48 + ULN2003](https://grabcad.com/library/28byj-48-stepper-motor-and-uln2003-stepper-motor-driver-board-1) |
 | Ball (support point) | Rotating ball 3PI N20 | [Techfun - 3PI N20](https://techfun.sk/produkt/gulicka-n20-pre-stavebnice-robotickych-auticok/) | []() |
 | Battery holder | 18650 Li-Ion Holder | [LaskaKit - 18650 Holder](https://www.laskakit.cz/bateriovy-box-1x18650-dratove-vyvody/) | [GrabCAD - 18650 Holder](https://grabcad.com/library/18650-battery-holder-generic-1) |
-| Battery | 18650 Li-Ion 2800mAh 10A | [Techfun - TENPOWER 2800mAh 10A](https://techfun.sk/produkt/18650-bateria-tenpower-inr18650-28he-2800mah-10a/) | []() |
+| Battery | 18650 Li-Ion 2800mAh 10A | [Techfun - INR18650-28HE](https://techfun.sk/produkt/18650-bateria-tenpower-inr18650-28he-2800mah-10a/) | []() |
 
 *These components are optional, but I have examples for them:*
 
