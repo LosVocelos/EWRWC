@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "RQM0029A-MFG")(type "KiCad")(uri "${KIPRJMOD}/project_lib/ul_BQ25672RQMR/KiCADv6/footprints.pretty")(options "")(descr "RQM0029A-MFG"))
+)
