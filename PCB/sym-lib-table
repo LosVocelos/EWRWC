@@ -2,4 +2,5 @@
   (version 7)
   (lib (name "BQ25672RQMR")(type "KiCad")(uri "${KIPRJMOD}/project_lib/ul_BQ25672RQMR/KiCADv6/2023-12-12_14-16-37.kicad_sym")(options "")(descr "BQ25672RQMR"))
   (lib (name "BQ25792RQMR")(type "KiCad")(uri "${KIPRJMOD}/project_lib/ul_PQ25792RQMR/KiCADv6/2023-12-12_14-19-57.kicad_sym")(options "")(descr "BQ25792RQMR"))
+  (lib (name "TPS63070RNMR")(type "KiCad")(uri "${KIPRJMOD}/project_lib/ul_TPS630701RNMR/KiCADv6/2023-12-29_16-19-24.kicad_sym")(options "")(descr "TPS63070RNMR"))
 )
