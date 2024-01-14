@@ -6126,7 +6126,7 @@
     )
   )
 
-  (symbol (lib_id "Jumper:SolderJumper_2_Open") (at 33.02 105.41 0) (unit 1)
+  (symbol (lib_id "Jumper:SolderJumper_2_Open") (at 33.02 105.41 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 26bc0848-ed88-4cdf-84bf-978b619a87e9)
     (property "Reference" "JP3" (at 33.02 107.95 0)
@@ -6942,7 +6942,7 @@
     )
   )
 
-  (symbol (lib_id "Jumper:SolderJumper_2_Open") (at 33.02 87.63 0) (unit 1)
+  (symbol (lib_id "Jumper:SolderJumper_2_Open") (at 33.02 87.63 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 5721ab35-a550-4b34-a18c-bcb848e8ca48)
     (property "Reference" "JP1" (at 33.02 90.17 0)
@@ -7309,7 +7309,7 @@
     )
   )
 
-  (symbol (lib_id "Jumper:SolderJumper_2_Open") (at 33.02 96.52 0) (unit 1)
+  (symbol (lib_id "Jumper:SolderJumper_2_Open") (at 33.02 96.52 180) (unit 1)
     (in_bom yes) (on_board yes) (dnp no)
     (uuid 7445ea2a-203a-4138-93bd-64338f53f5d2)
     (property "Reference" "JP2" (at 33.02 99.06 0)
