@@ -2975,7 +2975,7 @@
     (property "ki_keywords" "R res resistor")
     (path "/11bc3ecf-f1ca-40af-a85c-c877821acb3d")
     (attr smd)
-    (fp_text reference "R32" (at 0 -1.17) (layer "F.SilkS")
+    (fp_text reference "R32" (at 0 -1.17) (layer "F.SilkS") hide
         (effects (font (size 1 1) (thickness 0.15)))
       (tstamp 5cf1643a-874f-420e-bd57-66c9714b0ad4)
     )
@@ -6835,7 +6835,7 @@
     (property "ki_keywords" "R res resistor")
     (path "/8b5b861c-48ec-49cf-a4cf-688a9a2a81cb")
     (attr smd)
-    (fp_text reference "R31" (at 0 -1.17) (layer "F.SilkS")
+    (fp_text reference "R31" (at 0 -1.17) (layer "F.SilkS") hide
         (effects (font (size 1 1) (thickness 0.15)))
       (tstamp e2b2eee6-d8af-4985-9cff-f753da15d3cd)
     )
