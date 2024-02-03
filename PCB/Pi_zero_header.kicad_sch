@@ -10505,7 +10505,7 @@
     (property "Datasheet" "https://www.raspberrypi.org/documentation/hardware/raspberrypi/schematics/rpi_SCH_3bplus_1p0_reduced.pdf" (at 185.42 233.68 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "LCSC" "" (at 185.42 233.68 0)
+    (property "LCSC" "C5307344" (at 185.42 233.68 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "JLC" "" (at 185.42 233.68 0)
