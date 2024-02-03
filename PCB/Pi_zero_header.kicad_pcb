@@ -220,6 +220,7 @@
     (at 45.4 95.75 -90)
     (descr "Through hole straight pin header, 1x04, 1.27mm pitch, single row")
     (tags "Through hole pin header THT 1x04 1.27mm single row")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -293,6 +294,7 @@
     (at 43.5 114 180)
     (descr "Mounting Hole 2.7mm, no annular")
     (tags "mounting hole 2.7mm no annular")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -325,6 +327,7 @@
     (at 61.525 93.58 180)
     (descr "Through hole straight pin header, 2x03, 2.54mm pitch, double rows")
     (tags "Through hole pin header THT 2x03 2.54mm double row")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -402,6 +405,7 @@
     (at 56.25 67.23 90)
     (descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0402")
     (property "LCSC" "C307331")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -457,6 +461,7 @@
     (at 62.5 102.5)
     (descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0402")
     (property "LCSC" "C52923")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -512,6 +517,7 @@
     (at 49.75 62)
     (descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0603")
     (property "LCSC" "C19666")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -567,6 +573,7 @@
     (at 56.75 98 -90)
     (descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0402")
     (property "LCSC" "C1525")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -622,6 +629,7 @@
     (at 46.52 81.75)
     (descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0402")
     (property "LCSC" "C307331")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -677,6 +685,7 @@
     (at 62.25 60.503766 90)
     (descr "LED SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
     (tags "LED")
+    (property "JLC" "0603")
     (property "LCSC" "C2286")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -736,6 +745,7 @@
     (at 45.4 99 -90)
     (descr "Through hole straight pin header, 1x04, 1.27mm pitch, single row")
     (tags "Through hole pin header THT 1x04 1.27mm single row")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -809,6 +819,7 @@
     (at 47.75 110.75 180)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C11702")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -864,6 +875,7 @@
     (at 58.725 73.753766 90)
     (descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
     (tags "Through hole pin header THT 1x02 2.54mm single row")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -929,6 +941,7 @@
     (at 53 61.003766 180)
     (descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0805")
     (property "LCSC" "C45783")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -984,6 +997,7 @@
     (at 55 55 180)
     (descr "16-pin USB-C receptacle, USB2.0 and PD, 5A VBUS rating, https://datasheet.lcsc.com/lcsc/2211161000_HCTL-HC-TYPE-C-16P-01A_C2894897.pdf")
     (tags "usb usb-c 2.0 pd")
+    (property "JLC" "")
     (property "LCSC" "C2894897")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -1091,6 +1105,7 @@
     (at 55 72.753766)
     (descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
     (tags "Through hole pin header THT 1x02 2.54mm single row")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -1156,6 +1171,7 @@
     (at 56 83.25 180)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C4131")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -1211,6 +1227,7 @@
     (at 60.75 101.25)
     (descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0402")
     (property "LCSC" "C52923")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -1266,6 +1283,7 @@
     (at 46.75 68.4 90)
     (descr "SMD Solder Jumper, 1x1.5mm, rounded Pads, 0.3mm gap, open")
     (tags "solder jumper open")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -1341,6 +1359,7 @@
     (tstamp 369a6eff-a877-419f-ac98-8ea27ce86bdd)
     (at 49.5 89.25)
     (tags "TPS630701RNMR ")
+    (property "JLC" "")
     (property "LCSC" "C109322")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -2168,6 +2187,7 @@
     (tstamp 37dad68c-6774-4571-8d3f-37f9b2af5747)
     (at 53.25 66.25 -90)
     (tags "BQ25672RQMR ")
+    (property "JLC" "")
     (property "LCSC" "C2862876")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -2422,6 +2442,7 @@
     (at 62.5 109.75 180)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25744")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -2477,6 +2498,7 @@
     (at 42.25 60.975)
     (descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
     (tags "Through hole pin header THT 1x02 2.54mm single row")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -2542,6 +2564,7 @@
     (at 48.75 95)
     (descr "LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
     (tags "LED")
+    (property "JLC" "0805")
     (property "LCSC" "C2297")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -2601,6 +2624,7 @@
     (at 56 94.25 -90)
     (descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0805")
     (property "LCSC" "C16780")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -2656,6 +2680,7 @@
     (at 52.5 115 -90)
     (descr "SMD Crystal SERIES SMD3225/4 http://www.txccrystal.com/images/pdf/7m-accuracy.pdf, 3.2x2.5mm^2 package")
     (tags "SMD SMT crystal")
+    (property "JLC" "")
     (property "LCSC" "C9002")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -2717,6 +2742,7 @@
     (at 43.5 56 180)
     (descr "Mounting Hole 2.7mm, no annular")
     (tags "mounting hole 2.7mm no annular")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -2749,6 +2775,7 @@
     (at 54.75 112.75 90)
     (descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0402")
     (property "LCSC" "C1548")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -2804,6 +2831,7 @@
     (at 45 76.5 -90)
     (descr "24-Lead Plastic Shrink Small Outline (SS)-5.30 mm Body [SSOP] (see Microchip Packaging Specification 00000049BS.pdf)")
     (tags "SSOP 0.65")
+    (property "JLC" "")
     (property "LCSC" "C88224")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -2915,6 +2943,7 @@
     (at 60.75 85.75 180)
     (descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0805")
     (property "LCSC" "C16780")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -2970,6 +2999,7 @@
     (at 51.5 109)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25744")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -3025,6 +3055,7 @@
     (at 61.5 54.5 180)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25130")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -3080,6 +3111,7 @@
     (at 45.85 69.3 180)
     (descr "SMD Solder Jumper, 1x1.5mm, rounded Pads, 0.3mm gap, open")
     (tags "solder jumper open")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -3156,6 +3188,7 @@
     (at 62.5 110.75 180)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25744")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -3211,6 +3244,7 @@
     (at 53.5 79.5 -90)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25744")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -3266,6 +3300,7 @@
     (at 61.5 76.75)
     (descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0805")
     (property "LCSC" "C45783")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -3321,6 +3356,7 @@
     (at 54.75 89.25 -90)
     (descr "Inductor, Chilisin, BMRA00040420, 4.6x4.1x2.0mm, https://www.chilisin.com/upload/media/product/power/file/BMRx_Series.pdf")
     (tags "Inductor bmrx mchi")
+    (property "JLC" "")
     (property "LCSC" "C2838337")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -3384,6 +3420,7 @@
     (at 50.75 77 90)
     (descr "Tantalum Capacitor SMD Kemet-A (3216-18 Metric), IPC_7351 nominal, (Body size from: http://www.kemet.com/Lists/ProductCatalog/Attachments/253/KEM_TC101_STD.pdf), generated with kicad-footprint-generator")
     (tags "capacitor tantalum")
+    (property "JLC" "")
     (property "LCSC" "C7171")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -3443,6 +3480,7 @@
     (at 51.5 99.25)
     (descr "SOIC, 8 Pin (http://www.winbond.com/resource-files/w25q32jv%20revg%2003272018%20plus.pdf#page=68), generated with kicad-footprint-generator ipc_gullwing_generator.py")
     (tags "SOIC SO")
+    (property "JLC" "")
     (property "LCSC" "C97521")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -3526,6 +3564,7 @@
     (at 57.25 100.5 90)
     (descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0402")
     (property "LCSC" "C1525")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -3581,6 +3620,7 @@
     (at 60.25 99.5 -90)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25100")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -3636,6 +3676,7 @@
     (at 62.25 56.75 90)
     (descr "LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
     (tags "LED")
+    (property "JLC" "0805")
     (property "LCSC" "C2297")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -3695,6 +3736,7 @@
     (at 45.4 92.5 -90)
     (descr "Through hole straight pin header, 1x04, 1.27mm pitch, single row")
     (tags "Through hole pin header THT 1x04 1.27mm single row")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -3768,6 +3810,7 @@
     (at 58.25 112.25 -90)
     (descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0402")
     (property "LCSC" "C1525")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -3823,6 +3866,7 @@
     (at 46.75 65.8 90)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25913")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -3878,6 +3922,7 @@
     (at 47.25 90.25 -90)
     (descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0402")
     (property "LCSC" "C307331")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -3933,6 +3978,7 @@
     (at 58.25 100.5 90)
     (descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0402")
     (property "LCSC" "C1525")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -3988,6 +4034,7 @@
     (at 47.75 65.81 90)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25850")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -4043,6 +4090,7 @@
     (at 62.5 103.5)
     (descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0402")
     (property "LCSC" "C1525")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -4098,6 +4146,7 @@
     (at 58.2 68.003766 90)
     (descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0402")
     (property "LCSC" "C307339")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -4153,6 +4202,7 @@
     (at 45.75 62.47 90)
     (descr "Resistor, Axial_DIN0204 series, Axial, Vertical, pin pitch=2.54mm, 0.167W, length*diameter=3.6*1.6mm^2, http://cdn-reichelt.de/documents/datenblatt/B400/1_4W%23YAG.pdf")
     (tags "Resistor Axial_DIN0204 series Axial Vertical pin pitch 2.54mm 0.167W length 3.6mm diameter 1.6mm")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -4204,6 +4254,7 @@
     (at 49.75 91.75 180)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25790")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -4259,6 +4310,7 @@
     (at 42 101.94)
     (descr "Through hole straight pin header, 1x07, 1.27mm pitch, single row")
     (tags "Through hole pin header THT 1x07 1.27mm single row")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -4338,6 +4390,7 @@
     (at 49.5 86.75 180)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25744")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -4393,6 +4446,7 @@
     (at 53 85.5)
     (descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0603")
     (property "LCSC" "C96446")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -4448,6 +4502,7 @@
     (at 47.5 62.5 -90)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25907")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -4503,6 +4558,7 @@
     (at 57.85 84.75 -90)
     (descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0603")
     (property "LCSC" "C96446")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -4558,6 +4614,7 @@
     (at 47.65 69.3)
     (descr "SMD Solder Jumper, 1x1.5mm, rounded Pads, 0.3mm gap, open")
     (tags "solder jumper open")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -4634,6 +4691,7 @@
     (at 52 102.75 180)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25744")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -4689,6 +4747,7 @@
     (at 48.75 114.25 90)
     (descr "C&K Components, PTS 810 Series, Microminiature SMT Top Actuated, http://www.ckswitches.com/media/1476/pts810.pdf")
     (tags "SPST Button Switch")
+    (property "JLC" "")
     (property "LCSC" "C116501")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -4768,6 +4827,7 @@
     (at 61 60.253766 -90)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25879")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -4823,6 +4883,7 @@
     (at 58.2 64.503766 -90)
     (descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0402")
     (property "LCSC" "C307339")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -4878,6 +4939,7 @@
     (at 56.25 65.25 -90)
     (descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0402")
     (property "LCSC" "C307331")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -4933,6 +4995,7 @@
     (at 55.75 112.75 90)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C11702")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -4988,6 +5051,7 @@
     (at 47.75 91.75 180)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25755")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -5043,6 +5107,7 @@
     (at 47.5 64.25 180)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25741")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -5098,6 +5163,7 @@
     (at 62.75 70.5 -90)
     (descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0402")
     (property "LCSC" "C1523")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -5153,6 +5219,7 @@
     (at 56 84.25 180)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25741")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -5208,6 +5275,7 @@
     (at 58 62.253766)
     (descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0805")
     (property "LCSC" "C45783")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -5263,6 +5331,7 @@
     (at 42.25 69.775 180)
     (descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
     (tags "Through hole pin header THT 1x02 2.54mm single row")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -5328,6 +5397,7 @@
     (at 53.75 63.003766 180)
     (descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0402")
     (property "LCSC" "C307331")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -5383,6 +5453,7 @@
     (at 49 107.15 180)
     (descr "Through hole straight pin header, 1x04, 1.27mm pitch, single row")
     (tags "Through hole pin header THT 1x04 1.27mm single row")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -5456,6 +5527,7 @@
     (at 49.25 85.275 180)
     (descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0805")
     (property "LCSC" "C45783")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -5511,6 +5583,7 @@
     (at 51.5 73.253766 180)
     (descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0805")
     (property "LCSC" "C440198")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -5566,6 +5639,7 @@
     (at 43.25 82.5 180)
     (descr "Tantalum Capacitor SMD Kemet-A (3216-18 Metric), IPC_7351 nominal, (Body size from: http://www.kemet.com/Lists/ProductCatalog/Attachments/253/KEM_TC101_STD.pdf), generated with kicad-footprint-generator")
     (tags "capacitor tantalum")
+    (property "JLC" "")
     (property "LCSC" "C7171")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -5625,6 +5699,7 @@
     (at 59.25 99.5 -90)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25100")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -5680,6 +5755,7 @@
     (at 61 66.25 -90)
     (descr "Inductor, Chilisin, BMRA00040420, 4.6x4.1x2.0mm, https://www.chilisin.com/upload/media/product/power/file/BMRx_Series.pdf")
     (tags "Inductor bmrx mchi")
+    (property "JLC" "")
     (property "LCSC" "C2838337")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -5743,6 +5819,7 @@
     (at 57.55 77.05 90)
     (descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0603")
     (property "LCSC" "C96446")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -5798,6 +5875,7 @@
     (at 51.6 93.25 -90)
     (descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0603")
     (property "LCSC" "C96446")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -5853,6 +5931,7 @@
     (at 45.4 89.25 -90)
     (descr "Through hole straight pin header, 1x04, 1.27mm pitch, single row")
     (tags "Through hole pin header THT 1x04 1.27mm single row")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -5926,6 +6005,7 @@
     (at 50 81 -90)
     (descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0402")
     (property "LCSC" "C307331")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -5981,6 +6061,7 @@
     (at 47.75 56.5 90)
     (descr "LED SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
     (tags "LED")
+    (property "JLC" "0603")
     (property "LCSC" "C72038")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -6040,6 +6121,7 @@
     (at 54 83.25 180)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C52929")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -6095,6 +6177,7 @@
     (at 57.25 112.25 -90)
     (descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0402")
     (property "LCSC" "C1525")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -6150,6 +6233,7 @@
     (at 62.5 98.25 90)
     (descr "LED SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: http://www.tortai-tech.com/upload/download/2011102023233369053.pdf), generated with kicad-footprint-generator")
     (tags "LED")
+    (property "JLC" "0603")
     (property "LCSC" "C2286")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -6209,6 +6293,7 @@
     (at 55.48 115.5 90)
     (descr "Through hole straight pin header, 1x03, 1.27mm pitch, single row")
     (tags "Through hole pin header THT 1x03 1.27mm single row")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -6280,6 +6365,7 @@
     (at 51.5 71.253766 180)
     (descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0805")
     (property "LCSC" "C440198")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -6335,6 +6421,7 @@
     (at 59.25 70.753766)
     (descr "Capacitor SMD 1206 (3216 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "1206")
     (property "LCSC" "C96123")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -6390,6 +6477,7 @@
     (at 49 56 90)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25905")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -6445,6 +6533,7 @@
     (at 49.75 92.75 180)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25741")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -6500,6 +6589,7 @@
     (at 62.5 107.45)
     (descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0402")
     (property "LCSC" "C1525")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -6555,6 +6645,7 @@
     (at 53.5 81.75 -90)
     (descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0402")
     (property "LCSC" "C307331")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -6610,6 +6701,7 @@
     (at 62.5 96)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25117")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -6665,6 +6757,7 @@
     (at 51.5 95.25)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25117")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -6720,6 +6813,7 @@
     (at 51.75 107 180)
     (descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0402")
     (property "LCSC" "C1525")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -6775,6 +6869,7 @@
     (at 49 63.75 90)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25751")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -6830,6 +6925,7 @@
     (at 51.5 108)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25744")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -6885,6 +6981,7 @@
     (at 45.4 86 -90)
     (descr "Through hole straight pin header, 1x04, 1.27mm pitch, single row")
     (tags "Through hole pin header THT 1x04 1.27mm single row")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -6958,6 +7055,7 @@
     (at 49 58 -90)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25905")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -7013,6 +7111,7 @@
     (at 57.25 106.25)
     (descr "QFN, 56 Pin (https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf#page=634), generated with kicad-footprint-generator ipc_noLead_generator.py")
     (tags "QFN NoLead")
+    (property "JLC" "")
     (property "LCSC" "C2040")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -7194,6 +7293,7 @@
     (at 52 103.75 180)
     (descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0402")
     (property "LCSC" "C1525")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -7249,6 +7349,7 @@
     (at 66.5 56 180)
     (descr "Mounting Hole 2.7mm, no annular")
     (tags "mounting hole 2.7mm no annular")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -7281,6 +7382,7 @@
     (at 54 69.753766)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25076")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -7336,6 +7438,7 @@
     (at 48.25 54.5)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25117")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -7391,6 +7494,7 @@
     (at 61.25 114.25 -90)
     (descr "C&K Components, PTS 810 Series, Microminiature SMT Top Actuated, http://www.ckswitches.com/media/1476/pts810.pdf")
     (tags "SPST Button Switch")
+    (property "JLC" "")
     (property "LCSC" "C116501")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -7470,6 +7574,7 @@
     (at 45.25 101.94)
     (descr "Through hole straight pin header, 1x07, 1.27mm pitch, single row")
     (tags "Through hole pin header THT 1x07 1.27mm single row")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -7549,6 +7654,7 @@
     (at 53 112.25)
     (descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "capacitor")
+    (property "JLC" "0402")
     (property "LCSC" "C1548")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -7604,6 +7710,7 @@
     (at 53.75 93.75 -90)
     (descr "SMD Solder Jumper, 1x1.5mm, rounded Pads, 0.3mm gap, open")
     (tags "solder jumper open")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -7680,6 +7787,7 @@
     (at 45.75 65.8 90)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C25889")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -7735,6 +7843,7 @@
     (at 66.5 114 180)
     (descr "Mounting Hole 2.7mm, no annular")
     (tags "mounting hole 2.7mm no annular")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -7766,6 +7875,7 @@
     (tstamp f90cf39f-98c5-4e25-a77f-7f567c1be618)
     (at 55.75 80.75)
     (tags "TPS630701RNMR ")
+    (property "JLC" "")
     (property "LCSC" "C109322")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -8594,6 +8704,7 @@
     (at 61 80.75 -90)
     (descr "Inductor, Chilisin, BMRA00040420, 4.6x4.1x2.0mm, https://www.chilisin.com/upload/media/product/power/file/BMRx_Series.pdf")
     (tags "Inductor bmrx mchi")
+    (property "JLC" "")
     (property "LCSC" "C2838337")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -8657,6 +8768,7 @@
     (at 47.5 60.5 90)
     (descr "Resistor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
     (tags "resistor")
+    (property "JLC" "0402")
     (property "LCSC" "C29402")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -8712,6 +8824,7 @@
     (at 65.21 60.9 180)
     (descr "Through hole straight socket strip, 2x20, 2.54mm pitch, double cols (from Kicad 4.0.7), script generated")
     (tags "Through hole socket strip THT 2x20 2.54mm double row")
+    (property "JLC" "")
     (property "LCSC" "")
     (property "Sheetfile" "Pi_zero_header.kicad_sch")
     (property "Sheetname" "")
@@ -27157,17 +27270,17 @@
   (segment (start 53.8125 108.85) (end 52.7425 109.92) (width 0.2) (layer "F.Cu") (net 98) (tstamp e696e3f0-40dc-4149-bc74-6c905c755688))
   (segment (start 47.25 70.3) (end 46.75 69.8) (width 0.2) (layer "F.Cu") (net 101) (tstamp 012648aa-d3e0-4dfd-a802-f1054f6d185d))
   (segment (start 48.616114 70.3) (end 47.25 70.3) (width 0.2) (layer "F.Cu") (net 101) (tstamp 04f0e7e7-274e-4b94-b8e5-33155cccb103))
-  (segment (start 53.25 68.149999) (end 53.25 68.744974) (width 0.2) (layer "F.Cu") (net 101) (tstamp 1e21b4eb-55a4-4a44-acde-6d5abe0e3c7e))
+  (segment (start 52.706215 69.754658) (end 52.706215 69.288759) (width 0.2) (layer "F.Cu") (net 101) (tstamp 3e62f29f-16b7-4398-ac9d-99bdca8109e9))
+  (segment (start 53.25 68.744974) (end 53.25 68.149999) (width 0.2) (layer "F.Cu") (net 101) (tstamp 5472afb1-ab6b-489f-bbeb-f5c3b2c64c61))
   (segment (start 46.75 69.8) (end 46.75 69.05) (width 0.2) (layer "F.Cu") (net 101) (tstamp 5bfc77bb-89b9-4272-bfe2-cce8ba5185ee))
   (segment (start 48.912348 70.003766) (end 48.616114 70.3) (width 0.2) (layer "F.Cu") (net 101) (tstamp 97580a5c-7210-4b85-95af-010b4e20564d))
-  (segment (start 52.728554 69.26642) (end 52.728554 69.73232) (width 0.2) (layer "F.Cu") (net 101) (tstamp d390a0a5-4e80-48f9-b324-fb64a521c13a))
   (segment (start 51 70.003766) (end 48.912348 70.003766) (width 0.2) (layer "F.Cu") (net 101) (tstamp d5ab9c09-542c-4b00-9fbf-6b4efdf36b7a))
-  (segment (start 53.25 68.744974) (end 52.728554 69.26642) (width 0.2) (layer "F.Cu") (net 101) (tstamp e9be62c5-98b2-4edd-9b13-f87b6bc94366))
-  (via (at 52.728554 69.73232) (size 0.5) (drill 0.3) (layers "F.Cu" "B.Cu") (net 101) (tstamp 0d2b3e02-6071-44f8-ace9-ffcb42b83b1e))
+  (segment (start 52.706215 69.288759) (end 53.25 68.744974) (width 0.2) (layer "F.Cu") (net 101) (tstamp e4c35e8d-a80f-4c44-a06b-c15711d257a9))
+  (via (at 52.706215 69.754658) (size 0.5) (drill 0.3) (layers "F.Cu" "B.Cu") (net 101) (tstamp 0d2b3e02-6071-44f8-ace9-ffcb42b83b1e))
   (via (at 51 70.003766) (size 0.5) (drill 0.3) (layers "F.Cu" "B.Cu") (net 101) (tstamp 4063f3d0-e630-4b95-ae20-12356c89fe11))
-  (segment (start 52.207107 70.253766) (end 51.25 70.253766) (width 0.2) (layer "B.Cu") (net 101) (tstamp 33d585fa-4c3f-41a8-9636-a1c87d97d132))
-  (segment (start 51.25 70.253766) (end 51 70.003766) (width 0.2) (layer "B.Cu") (net 101) (tstamp bc3afe40-79a1-49b9-a609-2737b43e4f5f))
-  (segment (start 52.728554 69.73232) (end 52.207107 70.253766) (width 0.2) (layer "B.Cu") (net 101) (tstamp c15e08c2-da3b-4313-8628-af00c986026a))
+  (segment (start 52.207107 70.253766) (end 51.25 70.253766) (width 0.2) (layer "B.Cu") (net 101) (tstamp 267973ef-13e7-4157-9cd1-4285506a40ac))
+  (segment (start 51.25 70.253766) (end 51 70.003766) (width 0.2) (layer "B.Cu") (net 101) (tstamp 2fbde9bb-af92-415c-843e-f3843415d2a0))
+  (segment (start 52.706215 69.754658) (end 52.207107 70.253766) (width 0.2) (layer "B.Cu") (net 101) (tstamp dd9de5e2-7edf-4494-aafe-a698dad18dbe))
   (segment (start 45.5 69) (end 45.5 66.56) (width 0.2) (layer "F.Cu") (net 102) (tstamp 58ff899a-2464-4cc2-acbd-eeaba941134e))
   (segment (start 45.5 66.56) (end 45.75 66.31) (width 0.2) (layer "F.Cu") (net 102) (tstamp be8fc392-a12a-49b7-9de9-5c9ca5a24d45))
   (segment (start 45.2 69.3) (end 45.5 69) (width 0.2) (layer "F.Cu") (net 102) (tstamp e690678d-c2ca-40d1-8bd8-ad117e075e45))
@@ -43789,8 +43902,9 @@
         (xy 62.298049 70.343967)
         (xy 62.382882 70.246063)
         (xy 62.436697 70.128226)
-        (xy 62.455133 70)
-        (xy 62.448414 69.953266)
+        (xy 62.454498 70.004417)
+        (xy 62.455133 70.000002)
+        (xy 62.455133 69.999997)
         (xy 62.436698 69.871776)
         (xy 62.427181 69.850937)
         (xy 62.420207 69.790151)
@@ -44430,7 +44544,7 @@
         (xy 54.0505 71.604266)
         (xy 54.0505 69.289019)
         (xy 54.059447 69.247892)
-        (xy 54.077178 69.209067)
+        (xy 54.072363 69.219611)
         (xy 54.106597 69.144649)
         (xy 54.114381 69.090507)
         (xy 54.125033 69.016425)
@@ -47717,7 +47831,7 @@
         (xy 64.441824 69.239888)
         (xy 64.46253 69.265119)
         (xy 64.46359 69.26641)
-        (xy 64.477554 69.27787)
+        (xy 64.475569 69.276241)
         (xy 64.623547 69.397683)
         (xy 64.623548 69.397683)
         (xy 64.62355 69.397685)
@@ -47746,7 +47860,7 @@
         (xy 66.872316 69.106452)
         (xy 67.003585 69.266404)
         (xy 67.00359 69.26641)
-        (xy 67.017554 69.27787)
+        (xy 67.015569 69.276241)
         (xy 67.163547 69.397683)
         (xy 67.163548 69.397683)
         (xy 67.16355 69.397685)
@@ -49405,7 +49519,7 @@
         (xy 49.705445 70.28389)
         (xy 49.712193 70.30568)
         (xy 49.714 70.315341)
-        (xy 49.721716 70.327804)
+        (xy 49.719122 70.323614)
         (xy 49.728973 70.339525)
         (xy 49.735362 70.351646)
         (xy 49.746855 70.377673)
@@ -52879,7 +52993,6 @@
       04f0e7e7-274e-4b94-b8e5-33155cccb103
       05af2e51-fed7-41bb-8f20-d4def909884a
       0911917c-c687-4966-83cb-9de35bea869d
-      09fca242-726e-410b-82af-58bfb6004631
       0ae52ced-816b-4789-9296-7dca867ad8b8
       0b78fe91-cb8b-438d-b33a-749cdaf52aaa
       0c7622eb-0f0e-4240-9701-093953a5fad3
@@ -52898,14 +53011,12 @@
       177c8f95-443e-4ba4-b9da-9e499f5e8ce0
       1841b807-8aa5-4921-a164-f00c54c32d6d
       196f7d51-6582-48b4-b611-ba23aead9835
-      1a058abf-98b9-4fe6-b664-ab5e3105a5ee
       1abbe0de-5574-414f-a861-ff89bc7e002b
       1aca64f9-cb2f-4808-bf47-7a1009b6b527
       1b7fc612-4306-45ae-b6b5-70f713705cc7
       1c5868d8-5b13-4de5-838d-e0f0dd754e10
       1d337a34-183c-4025-8659-efdef6016821
       1d4b82a8-98d3-4c5a-bd95-71f32eb97c70
-      1e21b4eb-55a4-4a44-acde-6d5abe0e3c7e
       1fb9f4d0-c7be-424b-82af-586b2d80917b
       2025e0f5-c65e-4d5c-8379-bf86764efd47
       20984c6a-078f-4e73-8d7e-7fe315b0a621
@@ -52916,19 +53027,16 @@
       24243327-223c-4da7-a30b-5a65414ac7e4
       2485fa6c-854c-4b02-b0f7-567f3a7bac7c
       24aa150e-966f-464a-894f-6a1311b550d9
-      262c9f33-e84e-44d3-b85b-239ba8330d51
-      2686a8bf-ca24-4a48-8f92-103d920f25fa
+      267973ef-13e7-4157-9cd1-4285506a40ac
       281903b2-5edd-43d5-b992-ec534bd06c8d
       2c4d280d-1b59-4418-8bb4-d1e9e64c328b
       2c661862-94f2-44ef-8b15-7b2fbccc40ce
       2cbf4cf9-6b0a-4af0-8e6b-007b4f212cef
       2dfc34fb-0ca1-4216-818d-3a7616b47418
+      2fbde9bb-af92-415c-843e-f3843415d2a0
       308d37a8-986d-49f1-876c-0763a52a0642
       31402b3b-8c65-4746-9f38-22d23787c5f1
-      3155b196-f7c6-444e-b18d-29d77fe5acea
-      327266bd-1fb5-4ae1-bd23-2634524e9ea1
       33d14526-7de2-4132-8c6d-fd99680e85eb
-      33d585fa-4c3f-41a8-9636-a1c87d97d132
       3692b6ef-b49f-4c18-a527-8283a705d987
       36bac21e-bd16-48d5-bb16-57085c63801f
       37dad68c-6774-4571-8d3f-37f9b2af5747
@@ -52938,16 +53046,15 @@
       3aa09278-2009-4771-83a0-a6592fbabdf3
       3aff99df-2f66-4f19-b84b-afa46dd72b29
       3b2ec13c-031f-450e-a88c-ef0597583d65
+      3e62f29f-16b7-4398-ac9d-99bdca8109e9
       3ee6288a-2f9e-420c-888e-3e5995f3e920
       3f17938e-760b-4d71-90ba-859de9f95b7f
       40086350-0a53-4722-ba22-e1421b5267c1
       401ff17e-2d38-4105-99ea-82c4501f7f3a
       4063f3d0-e630-4b95-ae20-12356c89fe11
-      40850658-cfd6-4db1-878f-e194b6eac171
       455bbd63-7c0d-480f-a72b-ef6d4b003c97
       478ecbca-049c-4bd6-a8d6-eb52efc80580
       47c6479e-9258-4d40-a2c9-7e3f6bc79ad9
-      481cb91f-dda6-48fb-9f72-a8e2053d7c5a
       4825f807-cc50-448e-bd1c-fd8729346d3c
       488ed051-454b-4068-bf90-1b736f0a7c9b
       4cafcdd1-c533-482e-a955-731d7482a1fa
@@ -52955,8 +53062,8 @@
       519b8848-6e14-496f-90ac-2407928cac74
       52d43d99-9cb4-4e5e-99cd-4171cb89aed8
       543bc323-00d0-4a34-8f35-480bad308a4e
+      5472afb1-ab6b-489f-bbeb-f5c3b2c64c61
       55c4577a-d7a0-4a88-be20-1f9d8bf35b2f
-      56d2510b-5e8c-43e3-8553-c681c8480f89
       57ae5c82-54e4-4cd8-96c3-6fa1b4160e61
       58a911bc-ef58-4524-b5f3-0d9553520785
       58ff899a-2464-4cc2-acbd-eeaba941134e
@@ -52970,17 +53077,13 @@
       66164405-21ad-4ae3-950f-a45be38aef03
       662339bc-abc3-4529-adc3-0141884fa2ae
       66a1535a-8504-46de-995c-11ec9c621b04
-      673d11d4-34ad-499b-866d-b1a9bb146337
       686d4f1d-e9fc-4d06-8e44-b269e1ccfedf
       6904f885-971e-428e-892d-5f3fec821f24
       698502be-610a-4ee4-aa40-c9215b460563
       6bd18b30-08b7-4c19-a5d1-99fb168cf7b9
       6c1fe263-2640-45f3-a801-d1cb10efa979
       6ca00616-f94e-4c8c-8863-d08f47fc65e0
-      6ceb8537-419e-4d42-b085-98f3cee7db66
       6d202e0b-85f1-49b0-819f-70853bf969d8
-      6d6a9ddf-d341-444a-b718-fd945b08ed3e
-      6f372608-2c92-4d25-b28b-09f4cc8f990e
       70bd7e92-4129-4a54-92af-3fd820d2ad5d
       741be13c-9a76-41ab-abe0-0ee694637ffb
       7518db31-b9d4-490e-a3de-cb4cec4e76ce
@@ -52993,7 +53096,6 @@
       7d57c9ac-2258-42be-8011-f12d4ddefc30
       7d716451-183c-43ee-b153-151dba9208fe
       7e1e9885-5f18-4acd-b9f8-8f7b1badeb19
-      7f20602f-6edc-49d5-be57-07c21a221758
       7fd99dc5-0c82-4301-93f8-6547712d9ce7
       806c916e-6403-4605-b2aa-05c4fcb3dba6
       80bef97f-adf6-4f22-9889-35d4733295ac
@@ -53014,8 +53116,6 @@
       8eeaf5fd-f6ba-4607-be2d-25d001abe1cd
       8f6d9ca0-8ede-4368-ac25-d422cdc63fe0
       90030d5d-afe6-4ece-a310-aacc158c40df
-      90765e2d-f7e4-43b0-ab56-02e789217f8e
-      9079cfb7-9143-4d13-bf5f-20a4d8c54381
       90d4086a-f0a9-47ef-b47e-73081e90a4d0
       92a5ee71-7d4a-491e-b7ec-09dec674f79c
       93119b69-3d6a-4412-8300-fd92b23f1837
@@ -53026,30 +53126,24 @@
       964e0bfe-e479-4dfd-92ad-b49b0fd0f2c1
       967f68d4-b139-4d69-a557-b038896b6383
       97580a5c-7210-4b85-95af-010b4e20564d
-      97eed5db-fc29-4ae4-8254-a04ab307d90e
       989035c0-6f3e-4206-a07a-ef3970e196a9
       992701c2-5a06-4ab0-ab0f-3ab0b075ebb2
-      9ac239d9-e252-43eb-928d-3f661e84f8c1
       9bb13ca4-eac9-4550-af2a-e7928010ac7d
       9c914615-6905-4723-b380-43b5c6b57042
       9ca130ed-0028-479c-96f0-89fa00a0f2d0
       9e0ee811-047a-4988-b042-38db3792ee05
-      9e5eb1d2-8484-4560-b54c-42184c5091e2
       9fd1146f-9fbf-4b7c-9c28-3601822295c4
       a044f598-7c2c-40cf-903b-8c4a58d300c5
       a31ccb38-ae95-4842-9b46-4b831a2ab1a2
       a70891ad-f1d2-48ac-b729-fcc4943c1086
       a78272fc-9286-4dda-a005-ea0423020c02
-      a8207c51-dff2-473f-9a70-ffaabc8936a2
       a8a58835-cae5-40e0-ba0e-183df2e60582
       a8b64857-f794-4504-88c9-5c817fb7b8f5
       aa246e73-554f-415f-99e9-8bae6e2d48ba
       aaf0f2ad-4685-4c5f-9cde-6ba50c0f0e87
-      aba46170-d69b-44a1-b3cf-405a4c243237
       abfe9305-80a4-48e8-9648-d6d6eb2bac5c
       b08038d3-eeae-42ef-8142-41d81c4753d4
       b0e9de87-3557-489f-9465-363e42a41fda
-      b5f28584-5b8a-4637-8152-de13d8608d8e
       b7086b8c-660a-46da-a477-efc9f37487b0
       b9372253-ada3-4dc4-aa41-b2a4c96b1ac8
       ba4d753c-4244-4fe8-8718-439c98c08db2
@@ -53058,15 +53152,12 @@
       baaad3ee-69c3-4155-9edb-ca814fadaeab
       badc0a16-4c18-4d87-8e60-1ec020772041
       bae5ecc0-265a-4081-aeb9-1482174eb163
-      bc3afe40-79a1-49b9-a609-2737b43e4f5f
       be164368-b194-4d8f-b272-277d4bf5e7c8
       be8fc392-a12a-49b7-9de9-5c9ca5a24d45
       c05392fa-c46c-4a53-93ad-b2c1b74c3bb2
-      c15e08c2-da3b-4313-8628-af00c986026a
       c1e67bfe-47de-489b-815a-9f755de587e0
       c2b63161-7c36-4d94-afec-608cc26cca11
       c3c02847-0774-462b-8482-b2d5f052c3f5
-      c4a0222e-fe75-4ce4-a661-89e27e5a7d2e
       c5e99309-f6f1-4325-8d45-24efd7751a0a
       cb0f1af5-ad03-479c-9c61-22f7636460be
       cba6b197-d3c9-4b88-bede-115ed9c70947
@@ -53075,12 +53166,10 @@
       ce97d42b-f720-40dc-90f2-8c70c033e4d2
       d3445293-17c4-4cb3-86d4-76ae785d52b0
       d36e4843-48bf-4d6f-8290-e159aa2d3e5c
-      d390a0a5-4e80-48f9-b324-fb64a521c13a
       d39ca8ed-aa7f-4e8f-b709-cdd035fa8fc0
       d40d7f5b-03fd-4486-872c-ee2113938f97
       d4bb29bb-5248-49d1-acc7-b94710c4c37a
       d4f199f9-f361-49ac-a301-550c94095359
-      d537ee1c-5217-4dbd-a424-fcf4d356b767
       d5ab9c09-542c-4b00-9fbf-6b4efdf36b7a
       d681cbf5-7cb3-4430-8f4d-fc49a30540e4
       d7505f0a-a8cf-4fac-b0a9-ca75d0abd684
@@ -53091,25 +53180,21 @@
       db6ed352-781e-497b-943a-a8f89ed8077d
       dbdfb48a-7aca-401e-a8c8-03e80de1ff1a
       dcfe0b93-33d6-4c2b-ad84-1118a197c19d
+      dd9de5e2-7edf-4494-aafe-a698dad18dbe
       deb976ca-34bd-4c41-ba49-7fad94abadc8
       dfff84fe-01f1-464f-9f72-ed42415aa184
       e1b34de7-b57b-4812-9820-a4bd234285e0
-      e2b28856-6b3f-4d43-babc-9ac0844cd8b3
       e2d69f2a-4cb7-4089-b031-2e5dd2a9553a
       e3f5b2ec-7f4a-4628-99f6-c365f24fc1c7
+      e4c35e8d-a80f-4c44-a06b-c15711d257a9
       e5c35c33-7a7e-4d30-9917-2ab3a920383e
       e690678d-c2ca-40d1-8bd8-ad117e075e45
       e85a9fb9-8e21-4766-84b4-e358a517525d
-      e9be62c5-98b2-4edd-9b13-f87b6bc94366
       ea69194a-0026-4068-a785-989bb5a75426
       eab04b2e-67f7-408e-a436-3d4fef97c027
-      eb1eb4a0-48ec-4237-9a69-2b27d7fab64a
       ecf64c6c-c147-4ac8-89ac-c0c8af5d29c6
       ed8adda2-458f-434c-8bbe-1bad3cbcc8db
-      ef194b6f-ae36-4b99-9041-e9e439313ca2
-      ef632f0c-4959-49e6-9f68-932ccd8b18e8
       f09425d4-f686-4f8a-b461-ccd702dc2bd2
-      f3636c9a-9bcb-403f-8d86-c5136d9a6b88
       f3cc797a-a22a-40df-90a1-85a9a1cefc7a
       f462a6e4-7062-417a-a2a8-dc28c8b6fa10
       f4c5aa71-57d5-4660-8a93-6d38f3ef160f
@@ -53120,7 +53205,6 @@
       f80ef454-a4fc-445d-86bb-f56087975036
       f87014fa-a151-47cf-aabd-aea1087687ec
       fa15230c-b984-4890-bd69-25cc696d8fad
-      fb23c16c-a7f2-413a-820f-a37cdebc94b8
       fc01080d-dbe7-4fd4-a867-190e51478308
       fd241b09-5fda-405a-bbe9-c1c017313275
       fd5bb7f9-a9c2-4364-af05-2196ab7452bd
