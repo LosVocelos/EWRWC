@@ -47,7 +47,7 @@ List of parts used in the Add-on board:
 | ---------- | ---------- | ---------- | ---------- | ---------- |
 | Microcontroller | Raspberry Pi | RP2040 | [LCSC - RP2040](https://www.lcsc.com/product-detail/Microcontroller-Units-MCUs-MPUs-SOCs_Raspberry-Pi-RP2040_C2040.html) | [rp2040-datasheet.pdf](https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf) |
 | MCU Flash memory | Winbond | Q25W128JV | [JLCPCB - Q25W128JVSIQ](https://jlcpcb.com/partdetail/WinbondElec-W25Q128JVSIQ/C97521) | [W25Q128JV.pdf](https://www.winbond.com/resource-files/W25Q128JV%20RevI%2008232021%20Plus.pdf) |
-| MCU Crystal | YXC | X322512MSB4SI | [JLCPCB - X322512MSB4SI](https://jlcpcb.com/partdetail/Yxc-X322512MSB4SI/C9002) | [X322512MSB4SI.pdf](https://datasheet.lcsc.com/lcsc/2304140030_YXC-X322512MSB4SI_C9002.pdf) |
+| MCU Crystal | YXC | X322512MSB4SI | [JLCPCB - X322512MSB4SI](https://jlcpcb.com/partdetail/Yxc-X322512MSB4SI/C9002) | [YSX321SL.pdf](https://image.seapx.com/mall/yangxin/3/20231030/YSX321SL-687795.pdf) |
 | Battery management | Texas Instruments | BQ25792 | [LCSC - BQ25792](https://www.lcsc.com/product-detail/Battery-Management-ICs_Texas-Instruments-BQ25792RQMR_C2862876.html) | [bq25792.pdf](https://www.ti.com/lit/ds/symlink/bq25792.pdf) |
 | 5V / 3V3 Regulator | Texas Instruments | TPS63070 | [LCSC - TPS63070](https://www.lcsc.com/product-detail/DC-DC-Converters_Texas-Instruments-TPS63070RNMR_C109322.html) | [tps63070.pdf](https://www.ti.com/lit/ds/symlink/tps63070.pdf) |
 | Motor Driver (2 H) | Toshiba | TB6612FNG | [LCSC - TB6612FNG](https://www.lcsc.com/product-detail/Motor-Driver-ICs_TOSHIBA-TB6612FNG-O-C-8-EL_C88224.html) | [TB6612FNG.pdf](https://toshiba.semicon-storage.com/info/TB6612FNG_datasheet_en_20141001.pdf?did=10660&prodName=TB6612FNG) |
