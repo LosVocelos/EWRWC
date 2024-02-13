@@ -9,7 +9,7 @@ These are the components (and their 3D models) I'm using in this project:
 
 | Part | Component | Store page | 3D model |
 | ---------- | ---------- | ---------- | ---------- |
-| EWRWC Add-on | Custom PCB (described below) | *None yet* | [Pi_zero_header.step](/PCB/Pi_zero_header.step)
+| EWRWC Add-on | Custom PCB (described below) | *None yet* | [Pi_zero_header.step](PCB/Pi_zero_header.step)
 | Brain (CPU) | Raspberry pi zero 2 w | [RPishop - Zero 2 w](https://rpishop.cz/zero/4311-raspberry-pi-zero-2-w-5056561800004.html) | [GrabCAD - Zero 2 w](https://grabcad.com/library/raspberry-pi-zero-2-w-1) |
 | Camera | Raspberry Pi camera V2 | [RPishop - camera v2](https://rpishop.cz/mipi-kamerove-moduly/329-raspberry-pi-kamera-modul-v2.html) | [Thingiverse - Rpi Camera v2.1](https://www.thingiverse.com/thing:2376448/files) |
 | Camera cable (200 mm) | Camera Cable Standard - Mini | [RPishop - camera cable](https://rpishop.cz/mipi-kamerove-moduly/329-raspberry-pi-kamera-modul-v2.html) | []() |
