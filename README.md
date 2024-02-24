@@ -38,7 +38,7 @@ These are the components (and their 3D models) I'm using in this project:
 
 ### PCB (EWRWC Add-on)
 
-i previously called the board a Pi-Zero-Header (that's why the files are called that way).
+I previously called the board a Pi-Zero-Header (that's why the files are called that way).
 But that name didn't grasp the functionality well, so I decided to call it EWRWC Add-on (I wanted to call it the HAT, but by board doesn't meet all requirements to be called that way).
 
 List of parts used in the Add-on board:
