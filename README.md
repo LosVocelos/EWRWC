@@ -60,7 +60,7 @@ TODO:
 
 - [x] Gather all sources
 - [x] Design the main PCB
-- [ ] Complete the PCB
+- [x] Complete the PCB
 - [ ] Design chassis
 - [ ] Print and ready the chassis
 - [ ] Complete the hardware
