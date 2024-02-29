@@ -45,6 +45,7 @@ include/divisible/*
 
 ## Local
 
+.vscode
 .idea/*.xml
 
 build/**/*

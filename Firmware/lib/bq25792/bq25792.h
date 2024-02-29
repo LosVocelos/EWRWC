@@ -26,7 +26,7 @@ typedef union
     };
 } charger_status_0;
 
-enum class CHG_STAT : uint8_t
+enum CHG_STAT : uint8_t
 {
     NOT_CHARGING = 0x0,
     TRICKLE_CHARGE = 0x1,
@@ -38,7 +38,7 @@ enum class CHG_STAT : uint8_t
 };
 
 
-enum class VBUS_STAT : uint8_t
+enum VBUS_STAT : uint8_t
 {
     NOINPUT = 0x0,
     USB_SDP_500MA = 0x1,
@@ -122,9 +122,9 @@ int bq_qon_pin;
 
 void bq_init_config(PIO pio, uint sm, int bcin_pin, int qon_pin);
 
-bool bq_flashChargeLevel(uint16_t pinToFlash, int totalDuration = 500, uint16_t cycles = 4);
+bool bq_flashChargeLevel(uint16_t pinToFlash, int totalDuration, uint16_t cycles);
 
-String bq_getChargeStatus();
+char* bq_getChargeStatus();
 
 // Register Access Functions
 float bq_getVSYSMIN();
@@ -170,7 +170,7 @@ uint8_t bq_getDeviceInfo();
 
 void bq_reset();
 
-private:
+// Internal functions
 void bq_readBytes(uint8_t addr, uint8_t *data, uint8_t size);
 uint16_t bq_readWord(uint8_t addr);
 uint8_t bq_readByte(uint8_t addr);

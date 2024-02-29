@@ -42,69 +42,37 @@ void bq_init_config(PIO pio, uint sm, int bcin_pin, int qon_pin) {
     bq_qon_pin = qon_pin;
 }
 
-bool bq_flashChargeLevel(uint16_t pinToFlash, int totalDuration, uint16_t cycles)
+char* bq_getChargeStatus()
 {
-    float vBat = bq_getVBAT();
-    float min = bq_getVSYSMIN();
-    float max = bq_getChargeVoltageLimit();
-
-    float onTime = -1000;
-    float offTime = 2000;
-    totalDuration - onTime;
-    while (onTime < 0 || onTime > 1000)
-    {
-        vBat = bq_getVBAT();
-        onTime = map(vBat * 100, min * 100, max * 100, 0, totalDuration);
-        DEBUG_PRINTLN("Trying");
-        delay(1000);
-    }
-    offTime = totalDuration - onTime;
-    DEBUG_PRINTF("Vbat: %.1f   Min: %.1f   Max: %.1f\n", vBat, min, max);
-    DEBUG_PRINTF("ON: %.1f  OFF:%.1f\n", onTime, offTime);
-    for (int i = 0; i < cycles; i++)
-    {
-        digitalWrite(pinToFlash, HIGH);
-        delay(onTime);
-        digitalWrite(pinToFlash, LOW);
-        delay(offTime);
-    }
-
-    return true;
-}
-
-String bq_getChargeStatus()
-{
-
 
     switch((uint8_t)bq_getChargeStatus0()){
         case 0x0:
-            return String("Not Charging");
+            return "Not Charging";
         break;
         case 0x1:
-            return String("Trickle Charge");
+            return "Trickle Charge";
         break;
         case 0x2:
-            return String("Precharge");
+            return "Precharge";
         break;
         case 0x3:
-            return String("Fast Charge");
+            return "Fast Charge";
         break;
         case 0x4:
-            return String("Taper Charge");
+            return "Taper Charge";
         break;
         case 0x5:
-            return String("Reserved");
+            return "Reserved";
         break;
         case 0x6:
-            return String("Top Off");
+            return "Top Off";
         break;
         case 0x7:
-            return String("Charging Done");
+            return "Charging Done";
         break;
     }
 
-
-   return String("noipe");
+   return "noipe";
 }
 
 float bq_getVSYSMIN()
@@ -191,7 +159,7 @@ float bq_getInputVoltageLimit()
 
 void bq_setInputVoltageLimit(float limit)
 {
-    uint8_t _limit = int(limit * 10);
+    uint8_t _limit = (int)(limit * 10);
     bq_writeByte(REG05_Input_Voltage_Limit, _limit);
 }
 
@@ -243,7 +211,7 @@ enum CHG_STAT bq_getChargeStatus0()
     enum CHG_STAT stat;
     uint8_t data = bq_readByte(REG1C_Charger_Status_1);
     data = (data >> 5) & 0x07;
-    stat = static_cast<CHG_STAT>(data);
+    stat = (enum CHG_STAT)(data);
     return stat;
 }
 
@@ -252,7 +220,7 @@ enum VBUS_STAT bq_getVBUStatus()
     enum VBUS_STAT stat;
     uint8_t data = bq_readByte(REG1C_Charger_Status_1);
     data = (data >> 1) & 0b00001111;
-    stat = static_cast<VBUS_STAT>(data);
+    stat = (enum VBUS_STAT)(data);
     return stat;
 }
 
@@ -292,7 +260,7 @@ float bq_twosComplementToFloat(int16_t value)
     int16_t mask = 0x8000; // Mask for the sign bit
     int16_t sign = value & mask;
     int16_t magnitude = value & ~mask;
-    float result = static_cast<float>(magnitude);
+    float result = (float)(magnitude);
 
     if (sign != 0)
     {

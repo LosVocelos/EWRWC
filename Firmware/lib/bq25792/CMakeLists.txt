@@ -20,9 +20,6 @@ add_executable(${PROJECT_NAME}
 # Setup PIO
 pico_generate_pio_header(${PROJECT_NAME} ${CMAKE_CURRENT_LIST_DIR}/i2c.pio)
 
-# PLIS WORK WITH NO FLASH
-pico_set_binary_type(${PROJECT_NAME} no_flash)
-
 # Create map/bin/hex/uf2 files
 pico_add_extra_outputs(${PROJECT_NAME})
 
@@ -30,6 +27,7 @@ target_sources(${PROJECT_NAME} PRIVATE
     main.c
     pio_i2c.c
     pio_i2c.h
+    PUBLIC
     bq25792.c
     bq25792.h
 )
