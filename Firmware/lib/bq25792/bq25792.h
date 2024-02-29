@@ -1,8 +1,6 @@
 #ifndef BQ25792_H
 #define BQ25792_H
-#include <Arduino.h>
-#include <Wire.h>
-#include <string>
+#include "pio_i2c.h"
 
 #define DEVICEADDRESS 0x6B
 
@@ -117,72 +115,67 @@ enum class VBUS_STAT : uint8_t
 
 #define CHARGEVOLTAGELIMIT_STEP_SIZE 10
 
-class BQ25792
-{
-private:
-    int BCIN_Pin;
-    int QON_Pin;
+PIO bq_i2c_pio;
+uint bq_i2c_sm;
+int bq_bcin_pin;
+int bq_qon_pin;
 
-public:
-    BQ25792(int _BCIN, int _QON);
+void bq_init_config(PIO pio, uint sm, int bcin_pin, int qon_pin);
 
-    // wrapper functions
-    void begin();
-    bool flashChargeLevel(uint16_t pinToFlash, int totalDuration = 500, uint16_t cycles = 4);
+bool bq_flashChargeLevel(uint16_t pinToFlash, int totalDuration = 500, uint16_t cycles = 4);
 
-    String getChargeStatus();
+String bq_getChargeStatus();
 
-    // Register Access Functions
-    float getVSYSMIN();
-    void setVSYSMIN(uint8_t vsys);
+// Register Access Functions
+float bq_getVSYSMIN();
+void bq_setVSYSMIN(uint8_t vsys);
 
-    uint8_t getCellCount();
-    void setCellCount2(uint8_t cells);
+uint8_t bq_getCellCount();
+void bq_setCellCount2(uint8_t cells);
 
-    float getChargeVoltageLimit();
-    void setChargeVoltageLimit(float limit);
+float bq_getChargeVoltageLimit();
+void bq_setChargeVoltageLimit(float limit);
 
-    float getChargeCurrentLimit();
-    void setChargeCurrentLimit(float limit);
+float bq_getChargeCurrentLimit();
+void bq_setChargeCurrentLimit(float limit);
 
-    float getInputVoltageLimit();
-    void setInputVoltageLimit(float limit);
+float bq_getInputVoltageLimit();
+void bq_setInputVoltageLimit(float limit);
 
-    float getInputCurrentLimit();
-    void setInputCurrentLimit(float limit);
+float bq_getInputCurrentLimit();
+void bq_setInputCurrentLimit(float limit);
 
-    precharge_control getPrechargeControl();
-    void setPreChargeControl(precharge_control *cntrl);
+struct precharge_control bq_getPrechargeControl();
+void bq_setPreChargeControl(struct precharge_control *cntrl);
 
-    void getVBATReadDone();
+void bq_getVBATReadDone();
 
-    bool isPluggedIn();
+bool bq_isPluggedIn();
 
-    CHG_STAT getChargeStatus0();
-    VBUS_STAT getVBUStatus();
+enum CHG_STAT bq_getChargeStatus0();
+enum VBUS_STAT bq_getVBUStatus();
 
-    bool isBatteryPresent();
+bool bq_isBatteryPresent();
 
-    bool isErrorPresent();
+bool bq_isErrorPresent();
 
-    void setCellCount(uint8_t cells);
+void bq_setCellCount(uint8_t cells);
 
-    float getVBAT();
-    float getIBUS();
+float bq_getVBAT();
+float bq_getIBUS();
 
-    void resetPower();
+void bq_resetPower();
 
-    uint8_t getDeviceInfo();
+uint8_t bq_getDeviceInfo();
 
-    void reset();
+void bq_reset();
 
 private:
-    void readBytes(uint8_t addr, uint8_t *data, uint8_t size);
-    uint16_t readWord(uint8_t addr);
-    uint8_t readByte(uint8_t addr);
-    void writeBytes(uint8_t addr, uint8_t *data, uint8_t size);
-    void writeWord(uint8_t addr, uint16_t data);
-    void writeByte(uint8_t addr, uint8_t data);
-};
+void bq_readBytes(uint8_t addr, uint8_t *data, uint8_t size);
+uint16_t bq_readWord(uint8_t addr);
+uint8_t bq_readByte(uint8_t addr);
+void bq_writeBytes(uint8_t addr, uint8_t *data, uint8_t size);
+void bq_writeWord(uint8_t addr, uint16_t data);
+void bq_writeByte(uint8_t addr, uint8_t data);
 
 #endif
