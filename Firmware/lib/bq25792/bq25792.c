@@ -282,7 +282,7 @@ float bq_getIBUS()
 
     uint8_t buf[2];
     bq_readBytes(REG31_IBUS_ADC, &buf[0], 2);
-    int16_t val = (float)(((buf[0]) << 8) | buf[1]);
+    uint16_t val = (float)(((buf[0]) << 8) | buf[1]);
     return bq_twosComplementToFloat(val);
 }
 
@@ -334,7 +334,7 @@ void bq_writeBytes(uint8_t addr, uint8_t *data, uint8_t size)
         combined_array[i + 1] = data[i];
     }
     DEBUG_PRINTF("writeI2C reg 0x%02x\n", addr)
-    result = pio_i2c_write_blocking(bq_i2c_pio, bq_i2c_sm, DEVICEADDRESS, data, 1 + size);
+    result = pio_i2c_write_blocking(bq_i2c_pio, bq_i2c_sm, DEVICEADDRESS, combined_array, 1 + size);
     for (uint8_t i = 0; i < size; i++)
     {
         DEBUG_PRINTF(" -> data[%d]:0x%02x\n", i, data[i])
