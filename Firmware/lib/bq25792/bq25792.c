@@ -35,6 +35,11 @@
     }
 #endif
 
+PIO bq_i2c_pio;
+uint bq_i2c_sm;
+int bq_bcin_pin;
+int bq_qon_pin;
+
 void bq_init_config(PIO pio, uint sm, int bcin_pin, int qon_pin) {
     bq_i2c_pio = pio;
     bq_i2c_sm = sm;
@@ -323,9 +328,13 @@ uint8_t bq_readByte(uint8_t addr)
 void bq_writeBytes(uint8_t addr, uint8_t *data, uint8_t size)
 {
     int result;
-    result = pio_i2c_write_blocking(bq_i2c_pio, bq_i2c_sm, DEVICEADDRESS, &addr, 1);
+    uint8_t combined_array[1 + size];
+    combined_array[0] = addr;
+    for (int i = 0; i < size; i++) {
+        combined_array[i + 1] = data[i];
+    }
     DEBUG_PRINTF("writeI2C reg 0x%02x\n", addr)
-    result = pio_i2c_write_blocking(bq_i2c_pio, bq_i2c_sm, DEVICEADDRESS, data, size);
+    result = pio_i2c_write_blocking(bq_i2c_pio, bq_i2c_sm, DEVICEADDRESS, data, 1 + size);
     for (uint8_t i = 0; i < size; i++)
     {
         DEBUG_PRINTF(" -> data[%d]:0x%02x\n", i, data[i])

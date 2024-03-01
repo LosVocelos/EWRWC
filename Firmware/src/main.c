@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 #include "pico/stdlib.h"
-#include "pio_i2c.h"
+//#include "pio_i2c.h"
 #include "bq25792.h"
 
 #define PIN_SDA 17
@@ -22,6 +22,7 @@ int main() {
     uint sm = 0;
     uint offset = pio_add_program(pio, &i2c_program);
     i2c_program_init(pio, sm, offset, PIN_SDA, PIN_SCL);
+    bq_init_config(pio, sm, 18, 0);
  
     printf("\nPIO I2C Bus Scan\n");
     printf("   0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F\n");
@@ -55,5 +56,21 @@ int main() {
 
     printf("Min sys U reg: %02x %02x \n", val, *buf);
     printf("Min sys U reg: %02x %02x \n", val, *buf);
+    printf("%d\n", bq_isBatteryPresent());
+    printf("uummmm1\n");
+    printf("%i\n", bq_getCellCount());
+    printf("uummmm2\n");
+    printf("%s\n", bq_getChargeStatus());
+    printf("uummmm2\n");
+    printf("%.06f\n", bq_getInputVoltageLimit());
+    printf("uummmm2\n");
+    bq_setInputVoltageLimit(4.6f);
+    sleep_ms(2000);
+    printf("uummmm2\n");
+    printf("%.06f\n", bq_getInputVoltageLimit());
+    printf("uummmm2\n");
+    printf("uummmm2\n");
+    printf("uummmm2\n");
+    printf("uummmm2\n");
     return 0;
 }

@@ -115,11 +115,6 @@ enum VBUS_STAT : uint8_t
 
 #define CHARGEVOLTAGELIMIT_STEP_SIZE 10
 
-PIO bq_i2c_pio;
-uint bq_i2c_sm;
-int bq_bcin_pin;
-int bq_qon_pin;
-
 void bq_init_config(PIO pio, uint sm, int bcin_pin, int qon_pin);
 
 bool bq_flashChargeLevel(uint16_t pinToFlash, int totalDuration, uint16_t cycles);
