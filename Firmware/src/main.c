@@ -45,41 +45,18 @@ int main() {
     }
     printf("Done.\n");
 
-    int result;
-    uint8_t buf[1];
-    uint8_t val = 0x0A;
-    printf("lol0\n");
-    result = pio_i2c_write_blocking(pio, sm, 0x6B, &val, 1);
-    printf("lol1\n");
-    result = pio_i2c_read_blocking(pio, sm, 0x6B, &buf[0], 1);
-    printf("lol2\n");
-
-    printf("Min sys U reg: %02x %02x \n", val, *buf);
-    printf("Min sys U reg: %02x %02x \n", val, *buf);
     printf("Error present: %d\n", bq_isErrorPresent());
-    printf("tt\n");
     printf("Battery present: %d\n", bq_isBatteryPresent());
-    printf("tt\n");
     printf("Cell cont: %i\n", bq_getCellCount());
-    printf("tt\n");
     printf("Charge status: %s\n", bq_getChargeStatus());
-    printf("tt\n");
     printf("Input I limit: %.06f\n", bq_getInputCurrentLimit());
-    printf("tt\n");
     printf("Input U limit: %.06f\n", bq_getInputVoltageLimit());
-    printf("tt\n");
-    bq_setInputVoltageLimit(4.6f);
+    bq_setInputVoltageLimit(4.4f);
     sleep_ms(2000);
-    printf("tt\n");
     printf("Input U limit: %.06f\n", bq_getInputVoltageLimit());
-    printf("tt\n");
     printf("VBAT: %.06f\n", bq_getVBAT());
-    printf("tt\n");
     printf("IBUS: %.06f\n", bq_getIBUS());
-    printf("tt\n");
     printf("VSYS min: %.06f\n", bq_getVSYSMIN());
-    printf("tt\n");
-    printf("tt\n");
     printf("tt\n");
     printf("tt\n");
     return 0;
