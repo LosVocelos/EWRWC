@@ -276,6 +276,16 @@ float bq_twosComplementToFloat(int16_t value)
     return result;
 }
 
+float bq_getIBAT()
+{
+    bq_writeByte(REG14_Charger_Control_5, 0b00110110);
+
+    uint8_t buf[2];
+    bq_readBytes(REG33_IBAT_ADC, &buf[0], 2);
+    uint16_t val = (float)(((buf[0]) << 8) | buf[1]);
+    return bq_twosComplementToFloat(val);
+}
+
 float bq_getIBUS()
 {
     bq_writeByte(REG2E_ADC_Control, 0b10001100);
