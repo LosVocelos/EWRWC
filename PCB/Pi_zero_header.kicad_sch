@@ -5,7 +5,9 @@
 	(uuid "b619a5d9-7fc7-4364-bf63-192bb5e8977a")
 	(paper "A3")
 	(title_block
+		(title "EWRWC Add-on schéma")
 		(date "2024-03-16")
+		(company "VOŠ a SPŠE Plzeň")
 	)
 	(lib_symbols
 		(symbol "BQ25792RQMR:PQ25792RQMR"
@@ -14653,6 +14655,19 @@
 			(justify right bottom)
 		)
 		(uuid "bfced023-e5be-4af4-828c-d555c955aa36")
+	)
+	(text "Příloha I."
+		(exclude_from_sim no)
+		(at 302.006 259.588 0)
+		(effects
+			(font
+				(size 5 5)
+				(thickness 1)
+				(bold yes)
+			)
+			(justify left)
+		)
+		(uuid "d3a29612-9143-444d-aa1b-da6a8a53a416")
 	)
 	(text "CHARGER"
 		(exclude_from_sim no)
