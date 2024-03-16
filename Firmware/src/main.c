@@ -90,7 +90,7 @@ int main() {
     i2c_program_init(pio, sm_i2c, offset_i2c, PIN_SDA, PIN_SCL);
     bq_init_config(pio, sm_i2c, 18, 0);
 
-    tresh = 3.5f * bq_getCellCount();
+    tresh = 3.6f * bq_getCellCount();
     v_bat = bq_getVBAT();
 
     uint8_t command = 0; // TODO reduce this
@@ -154,7 +154,7 @@ int main() {
                 case 0x01: // Enable motors [4 bits - motors A1, A2, B2, B2]
                     motors = pio_sm_get_blocking(pio, sm_spi);
 
-                    for (int i=0; i<3; i++){
+                    for (int i=0; i<4; i++){
                         gpio_put(motor_pins[i], (motors >> i) & 1); // Go through the first 4 bits and set them to GPIO
                     }
 
