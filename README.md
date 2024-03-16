@@ -50,6 +50,7 @@ List of parts used in the Add-on board:
 | MCU Crystal | YXC | X322512MSB4SI | [JLCPCB - X322512MSB4SI](https://jlcpcb.com/partdetail/Yxc-X322512MSB4SI/C9002) | [YSX321SL.pdf](https://image.seapx.com/mall/yangxin/3/20231030/YSX321SL-687795.pdf) |
 | Battery management | Texas Instruments | BQ25792 | [LCSC - BQ25792](https://www.lcsc.com/product-detail/Battery-Management-ICs_Texas-Instruments-BQ25792RQMR_C2862876.html) | [bq25792.pdf](https://www.ti.com/lit/ds/symlink/bq25792.pdf) |
 | 5V / 3V3 Regulator | Texas Instruments | TPS63070 | [LCSC - TPS63070](https://www.lcsc.com/product-detail/DC-DC-Converters_Texas-Instruments-TPS63070RNMR_C109322.html) | [tps63070.pdf](https://www.ti.com/lit/ds/symlink/tps63070.pdf) |
+| 5V / 3V3 Regulator | Chilisin Elec | BMRA000404201R0MA1 | [LCSC - BMRA000404201R0](https://www.lcsc.com/product-detail/Power-Inductors_Chilisin-Elec-BMRA000404201R0MA1_C2838337.html) | [BMRx_Series.pdf](https://www.chilisin.com/upload/media/product/power/file/BMRx_Series.pdf) |
 | Motor Driver (2 H) | Toshiba | TB6612FNG | [LCSC - TB6612FNG](https://www.lcsc.com/product-detail/Motor-Driver-ICs_TOSHIBA-TB6612FNG-O-C-8-EL_C88224.html) | [TB6612FNG.pdf](https://toshiba.semicon-storage.com/info/TB6612FNG_datasheet_en_20141001.pdf?did=10660&prodName=TB6612FNG) |
 
 There are much more parts used in this project (inductors, buttons, connectors, LEDs and a bunch of capacitors and resistors), but only those in the table are crucialfor the functionality and choosing the rest of the parts.
