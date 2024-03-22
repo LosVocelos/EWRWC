@@ -40041,7 +40041,7 @@
 			(justify left bottom)
 		)
 	)
-	(gr_text "Příloha II."
+	(gr_text "Příloha II"
 		(at 92 262.5 0)
 		(layer "Dwgs.User")
 		(uuid "cec2997d-9ac0-496b-8635-8ac0a674cbdc")
