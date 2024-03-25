@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="static/scripts.js"></script>
+    <link rel="icon" href="static/Linux.ico">
+    <link rel="stylesheet" href="static/styles.css">
+    <title>MLSC</title>
+</head>
+<body onunload="connection.close();">
+    <h1>My Little Scripting Car</h1>
+
+    <input type="range" id="velocity" min="-255" max="255" value="0" orient="vertical"
+           oninput="sendslid(connection, 'rotation', 'velocity');"
+           onchange="this.value=0; sendslid(connection, 'rotation', 'velocity');">
+    <img src="video_feed">
+    <input type="range" id="rotation" min="-255" max="255" value="0"
+           oninput="sendslid(connection, 'rotation', 'velocity');"
+           onchange="this.value=0; sendslid(connection, 'rotation', 'velocity');">
+
+    <br>
+    Line detection: <input type="checkbox" id="uschange" oninput="linechange(connection, this)">
+    <div>Deviation: <span id="deviation">0</span></div>
+    <br>
+    Color detection: <input type="checkbox" id="uschange" oninput="colorschange(connection, this)">
+    <div>Verdict [color, size]: <span id="verdict">[0, 0]</span></div>
+    
+    <script>
+        var connection = new WebSocket('ws:'+location.hostname+':8010/ws');
+        var keysdown = {};
+
+        // keydown handler
+        $(document).keydown(function(e){
+            // Do we already know it's down?
+            if (keysdown[e.keyCode]) {
+                // Ignore it
+                return;
+            }
+
+            // Remember it's down
+            keysdown[e.keyCode] = true;
+
+            // Do our thing
+            sendkeys(connection, keysdown);
+        });
+
+        // keyup handler
+        $(document).keyup(function(e){
+            // Remove this key from the map
+            delete keysdown[e.keyCode];
+
+            // Do our thing
+            sendkeys(connection, keysdown);
+        });
+
+        connection.onmessage = function(e){
+            var deviaton = document.getElementById('deviaton')
+            var verdict = document.getElementById('verdict')
+            deviaton.textContent = e.data.split(":")[0]
+            verdict.textContent = e.data.split(":")[1]
+        }
+
+    </script>
+</body>
+</html>
