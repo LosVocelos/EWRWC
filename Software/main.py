@@ -106,7 +106,7 @@ async def websocket_endpoint(websocket: WebSocket):
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app=app, host="0.0.0.0", port=8010, threaded=True)
+    uvicorn.run(app=app, host="0.0.0.0", port=8010)
 
     del picam2
     print("Camera unloading...")
