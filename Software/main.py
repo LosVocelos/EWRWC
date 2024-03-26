@@ -41,7 +41,7 @@ def gen():
     """Video streaming generator function."""
     while True:
         success, image = video.read()
-        if line or color:
+        if line or colors:
             output = cv2.zeros(image.shape, np.uint8)
         else:
             output = image
