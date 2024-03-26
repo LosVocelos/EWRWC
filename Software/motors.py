@@ -30,9 +30,9 @@ class Motors:
     def speed(self, newSpeed):
         self._speed = newSpeed
         msg0 = [0x01, 0b00000110]
-        if newSpeed[0] > 0:
+        if newSpeed[0] < 0:
             msg0[1] += 0b00000100
-        if newSpeed[1] > 0:
+        if newSpeed[1] < 0:
             msg0[1] -= 0b00000001
         
         self.spi.xfer(msg0)
