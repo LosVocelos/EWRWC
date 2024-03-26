@@ -22,7 +22,7 @@ function sendslid(connection, id1, id2){
 
     direction = [rot.value, vel.value];
 
-    document.getElementById("velocity").innerHTML = vel.value;
+    document.getElementById("vel_stat").innerHTML = vel.value;
     document.getElementById("angle").innerHTML = rot.value;
 
     // Do our thing
