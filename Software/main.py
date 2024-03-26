@@ -99,6 +99,7 @@ async def websocket_endpoint(websocket: WebSocket):
 
         if com == "get_data":
             await websocket.send_text(f"{deviation}:{verdict}")
+            print(f"{deviation}:{verdict}")
         elif com == "line":
             line = vals[0] != "0"
         elif com == "colors":
