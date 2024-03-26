@@ -77,7 +77,7 @@ def motor_speed(direction: int, velocity: int):
 @app.get('/video_feed', response_class=StreamingResponse)
 async def video_feed():
     """Video streaming route. Put this in the src attribute of an img tag."""
-    sleep(0.05)
+    # sleep(0.05)
     return StreamingResponse(gen(), media_type='multipart/x-mixed-replace; boundary=frame')
 
 
@@ -106,7 +106,7 @@ async def websocket_endpoint(websocket: WebSocket):
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app=app, host="0.0.0.0", port=8010)
+    uvicorn.run(app=app, host="0.0.0.0", port=8010, threaded=True)
 
     del picam2
     print("Camera unloading...")
