@@ -8,8 +8,12 @@ from time import sleep
 from spidev import SpiDev
 from motors import Motors
 from analyzer import Analyzer
+from picamera2 import Picamera2
 
-video = cv2.VideoCapture(0, cv2.CAP_V4L2)
+picam2 = Picamera2()
+config = picam2.create_preview_configuration(raw=picam2.sensor_modes[5])
+picam2.configure(config)
+picam2.start()
 
 # Init the APP
 app = FastAPI()
@@ -40,7 +44,7 @@ async def index(request: Request):
 def gen():
     """Video streaming generator function."""
     while True:
-        success, image = video.read()
+        image = picam2.capture_array()
         if line or colors:
             output = cv2.zeros(image.shape, np.uint8)
         else:
@@ -110,3 +114,5 @@ if __name__ == "__main__":
     import uvicorn
 
     uvicorn.run(app=app, host="0.0.0.0", port=8010)
+
+    del self.picam2
