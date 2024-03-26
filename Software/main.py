@@ -43,6 +43,7 @@ async def index(request: Request):
 
 def gen():
     """Video streaming generator function."""
+    global analyzer, line, colors, deviation, verdict
     while True:
         image = picam2.capture_array()
         if line or colors:
@@ -62,19 +63,10 @@ def gen():
 
 
 def motor_speed(direction: int, velocity: int):
-    if velocity > 0:
-        lm = velocity
-        rm = velocity
-        lm += direction / 2
-        rm -= direction / 2
-    elif velocity < 0:
-        lm = velocity
-        rm = velocity
-        lm -= direction / 2
-        rm += direction / 2
-    else:
-        lm = direction / 2
-        rm = -direction / 2
+    lm = velocity
+    rm = velocity
+    lm += direction / 2
+    rm -= direction / 2
 
     motors.speed = [int(lm) << 8, int(rm) << 8]
 
