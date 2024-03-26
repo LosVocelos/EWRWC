@@ -9,7 +9,7 @@ from spidev import SpiDev
 from motors import Motors
 from analyzer import Analyzer
 
-video = cv2.VideoCapture(0)
+video = cv2.VideoCapture(0, cv2.CAP_V4L2)
 
 # Init the APP
 app = FastAPI()
@@ -72,7 +72,7 @@ def motor_speed(direction: int, velocity: int):
         lm = direction / 2
         rm = direction / 2
 
-    motors.speed((lm << 6, rm << 6))
+    motors.speed((int(lm) << 6, int(rm) << 6))
 
     print("left motor" + str(int(lm) << 6) + "\n")
     print("right motor" + str(int(rm) << 6) + "\n")
