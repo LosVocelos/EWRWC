@@ -50,7 +50,7 @@ function colorschange(connection, colorsbox){
 
 function updateint(connection){
     if (line || colors) {
-        int = setInterval(() => { connection.send("get_data"); console.log(get_data) }, 500);
+        int = setInterval(() => { connection.send("get_data"); console.log("get_data") }, 500);
     } else {
         clearInterval(int);
     }

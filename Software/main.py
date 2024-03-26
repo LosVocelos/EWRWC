@@ -64,19 +64,19 @@ def gen():
 def motor_speed(direction: int, velocity: int):
     if velocity > 0:
         lm = velocity
-        rm = -velocity
+        rm = velocity
         lm += direction / 2
-        rm += direction / 2
+        rm -= direction / 2
     elif velocity < 0:
         lm = velocity
-        rm = -velocity
+        rm = velocity
         lm -= direction / 2
-        rm -= direction / 2
+        rm += direction / 2
     else:
         lm = direction / 2
-        rm = direction / 2
+        rm = -direction / 2
 
-    motors.speed = [int(-lm) << 8, int(rm) << 8]
+    motors.speed = [int(lm) << 8, int(rm) << 8]
 
     print("left motor" + str(int(lm) << 8) + "\n")
     print("right motor" + str(int(rm) << 8) + "\n")
