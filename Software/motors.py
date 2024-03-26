@@ -28,25 +28,22 @@ class Motors:
 
     @speed.setter
     def speed(self, newSpeed):
-        tmp_speed = newSpeed
         self._speed = newSpeed
         msg0 = [0x01, 0b00000110]
         if newSpeed[0] < 0:
             msg0[1] += 0b00000100
-            tmp_speed[0] = -newSpeed[0]
         if newSpeed[1] < 0:
             msg0[1] -= 0b00000001
-            tmp_speed[1] = -newSpeed[1]
         
         self.spi.xfer(msg0)
 
         msg = [0x10]
 
-        h1,h2 = max(min(tmp_speed[0],65535), 0).to_bytes(2, "big")
+        h1,h2 = max(min(abs(self._speed[0]),65535), 0).to_bytes(2, "big")
         msg.append(h1)
         msg.append(h2)
 
-        h1,h2 = max(min(tmp_speed[1],65535), 0).to_bytes(2, "big")
+        h1,h2 = max(min(abs(self._speed[1]),65535), 0).to_bytes(2, "big")
         msg.append(h1)
         msg.append(h2)
 
