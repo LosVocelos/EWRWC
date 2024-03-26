@@ -38,7 +38,7 @@ function linechange(connection, linebox){
 }
 
 function colorschange(connection, colorsbox){
-    if (linebox.checked) {
+    if (colorsbox.checked) {
         connection.send("colors:1");
         colors = true;
     } else {
