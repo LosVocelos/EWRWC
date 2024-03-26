@@ -68,10 +68,10 @@ def motor_speed(direction: int, velocity: int):
     lm += direction
     rm -= direction
 
-    motors.speed = [int(lm) << 8, int(rm) << 8]
+    motors.speed = [int(lm) * 256, int(rm) * 256]
 
-    print("left motor" + str(int(lm) << 8) + "\n")
-    print("right motor" + str(int(rm) << 8) + "\n")
+    print("left motor" + str(motors.speed[0]) + "\n")
+    print("right motor" + str(motors.speed[1]) + "\n")
 
 
 @app.get('/video_feed', response_class=StreamingResponse)
