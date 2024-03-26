@@ -8,10 +8,10 @@
     <script src="static/scripts.js"></script>
     <link rel="icon" href="static/Linux.ico">
     <link rel="stylesheet" href="static/styles.css">
-    <title>MLSC</title>
+    <title>EWRWC</title>
 </head>
 <body onunload="connection.close();">
-    <h1>My Little Scripting Car</h1>
+    <h1>Educatinonal Wheeled Robot With Camera</h1>
 
     <input type="range" id="velocity" min="-255" max="255" value="0" orient="vertical"
            oninput="sendslid(connection, 'rotation', 'velocity');"
@@ -22,10 +22,10 @@
            onchange="this.value=0; sendslid(connection, 'rotation', 'velocity');">
 
     <br>
-    Line detection: <input type="checkbox" id="uschange" oninput="linechange(connection, this)">
+    Line detection: <input type="checkbox" id="linechange" oninput="linechange(connection, this)">
     <div>Deviation: <span id="deviation">0</span></div>
     <br>
-    Color detection: <input type="checkbox" id="uschange" oninput="colorschange(connection, this)">
+    Color detection: <input type="checkbox" id="colorschange" oninput="colorschange(connection, this)">
     <div>Verdict [color, size]: <span id="verdict">[0, 0]</span></div>
     
     <script>
@@ -57,7 +57,7 @@
         });
 
         connection.onmessage = function(e){
-            var deviaton = document.getElementById('deviaton')
+            var deviaton = document.getElementById('deviation')
             var verdict = document.getElementById('verdict')
             deviaton.textContent = e.data.split(":")[0]
             verdict.textContent = e.data.split(":")[1]
