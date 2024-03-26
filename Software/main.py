@@ -65,8 +65,8 @@ def gen():
 def motor_speed(direction: int, velocity: int):
     lm = velocity
     rm = velocity
-    lm += direction / 2
-    rm -= direction / 2
+    lm += direction
+    rm -= direction
 
     motors.speed = [int(lm) << 8, int(rm) << 8]
 

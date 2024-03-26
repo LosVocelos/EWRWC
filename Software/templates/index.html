@@ -14,12 +14,10 @@
     <h1>Educatinonal Wheeled Robot With Camera</h1>
 
     <input type="range" id="velocity" min="-255" max="255" value="0" orient="vertical"
-           oninput="sendslid(connection, 'rotation', 'velocity');"
-           onchange="this.value=0; sendslid(connection, 'rotation', 'velocity');">
+           oninput="sendslid(connection, 'rotation', 'velocity');">
     <img src="video_feed">
     <input type="range" id="rotation" min="-255" max="255" value="0"
-           oninput="sendslid(connection, 'rotation', 'velocity');"
-           onchange="this.value=0; sendslid(connection, 'rotation', 'velocity');">
+           oninput="sendslid(connection, 'rotation', 'velocity');">
 
     <br>
     Line detection: <input type="checkbox" id="linechange" oninput="linechange(connection, this)">
