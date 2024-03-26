@@ -7,13 +7,13 @@ var colors = false
 function sendkeys(connection, keys){
     direction = [0, 0]
 
-    direction[1] += ("87" in keys) * 120;  // w
-    direction[1] -= ("83" in keys) * 120;  // s
-    direction[0] -= ("65" in keys) * 120;  // a
-    direction[0] += ("68" in keys) * 120;  // d
+    direction[1] += ("87" in keys) * 32767;  // w
+    direction[1] -= ("83" in keys) * 32767;  // s
+    direction[0] -= ("65" in keys) * 32767;  // a
+    direction[0] += ("68" in keys) * 32767;  // d
 
     // Do our thing
-    connection.send("sv:" + direction);
+    connection.send("motors:" + direction);
 }
 
 function sendslid(connection, id1, id2){
