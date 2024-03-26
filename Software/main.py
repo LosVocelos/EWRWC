@@ -65,8 +65,8 @@ def gen():
 def motor_speed(direction: int, velocity: int):
     lm = velocity
     rm = velocity
-    lm -= direction
-    rm += direction
+    lm += direction
+    rm -= direction
 
     motors.speed = (int(lm) * 256, int(rm) * 256)
 
