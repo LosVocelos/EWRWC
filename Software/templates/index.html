@@ -57,9 +57,10 @@
         });
 
         connection.onmessage = function(e){
-            var deviaton = document.getElementById('deviation')
+            console.log(e.data)
+            var deviation = document.getElementById('deviation')
             var verdict = document.getElementById('verdict')
-            deviaton.textContent = e.data.split(":")[0]
+            deviation.textContent = e.data.split(":")[0]
             verdict.textContent = e.data.split(":")[1]
         }
 
