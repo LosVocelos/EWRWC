@@ -36,7 +36,7 @@ class Motors:
             msg0[1] += 0b00000001
             self._speed[1] = -newSpeed[1]
         
-        self.spi.xfer(msg)
+        self.spi.xfer(msg0)
 
         msg = [0x10]
 
