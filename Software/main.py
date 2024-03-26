@@ -68,7 +68,7 @@ def motor_speed(direction: int, velocity: int):
     lm += direction
     rm -= direction
 
-    motors.speed = (int(lm) * 256, int(rm) * 256)
+    motors.speed = (int(lm) * 128, int(rm) * 128)
 
     print("left motor ", motors.speed[0])
     print("right motor ", motors.speed[1])
