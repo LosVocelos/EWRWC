@@ -20,11 +20,13 @@
            oninput="sendslid(connection, 'rotation', 'velocity');">
 
     <br>
-    Line detection: <input type="checkbox" id="linechange" oninput="linechange(connection, this)">
+    <div>Velocity: <span id="velocity">0</span></div>
+    <div>Angle: <span id="angle">0</span></div>
+    <!--Line detection: <input type="checkbox" id="linechange" oninput="linechange(connection, this)">
     <div>Deviation: <span id="deviation">0</span></div>
     <br>
     Color detection: <input type="checkbox" id="colorschange" oninput="colorschange(connection, this)">
-    <div>Verdict [color, size]: <span id="verdict">[0, 0]</span></div>
+    <div>Verdict [color, size]: <span id="verdict">[0, 0]</span></div>-->
     
     <script>
         var connection = new WebSocket('ws:'+location.hostname+':8010/ws');
