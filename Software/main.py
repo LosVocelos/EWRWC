@@ -94,8 +94,10 @@ async def websocket_endpoint(websocket: WebSocket):
             print(f"{deviation}:{verdict}")
         elif com == "line":
             line = vals[0] != "0"
+            print(line)
         elif com == "colors":
             colors = vals[0] != "0"
+            print(colors)
         elif com == "motors":
             direction, velocity = vals[0].split(",")
             motor_speed(int(direction), int(velocity))
