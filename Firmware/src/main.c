@@ -12,7 +12,7 @@
 #include "pico/util/datetime.h"
 #include "hardware/pio.h"
 #include "hardware/pwm.h"
-#include "clocked_input.pio.h"
+#include "spi_slave.pio.h"
 #include "bq25792.h"
 
 // Set up a PIO state machine to shift in serial data, sampling with an
@@ -30,6 +30,7 @@ const uint8_t motor_pins[] = {4, 2, 1, 3}; // AIN1, AIN2, BIN1, BIN2
 const uint8_t pwm_pins[] = {0, 5, 19, 20}; // PWMA, PWMB, SERVOA, SERVOB
 
 #define SPI_RX_PIN 25
+#define SPI_RX_PIN 24
 
 #define PWM_CLOCK_DIVIDE 25.f // Divide the PWM clock down to a more reasonable 1MHz to even be able to do 100hz but retain precision.
 #define WRAP 49999.f // calculated so it matches 100hz (original frequency/desired frequency) - 1

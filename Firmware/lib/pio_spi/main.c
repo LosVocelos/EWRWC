@@ -10,7 +10,7 @@
 #include "pico/stdlib.h"
 #include "hardware/pio.h"
 #include "hardware/pwm.h"
-#include "clocked_input.pio.h"
+#include "spi_slave.pio.h"
 
 // Set up a PIO state machine to shift in serial data, sampling with an
 // external clock, and push the data to the RX FIFO, 8 bits at a time.
@@ -21,11 +21,13 @@ const uint8_t motor_pins[] = {4, 2, 1, 3}; // AIN1, AIN2, BIN1, BIN2
 const uint8_t pwm_pins[] = {0, 5, 19, 20}; // PWMA, PWMB, SERVOA, SERVOB
 
 #define SPI_RX_PIN 25
+#define SPI_TX_PIN 24
 
 #define PWM_CLOCK_DIVIDE 25.f // Divide the PWM clock down to a more reasonable 1MHz to even be able to do 100hz but retain precision.
 #define WRAP 49999.f // calculated so it matches 100hz (original frequency/desired frequency) - 1
 
 int main() {
+    stdio_init_all();
 
     for (int i=0; i < 4; i++){ // Set all motor pins to OUT
         gpio_init(motor_pins[i]);
@@ -44,9 +46,9 @@ int main() {
     const float scaler = (float)WRAP/65535; // so the speed can be scaled according to the wrap
 
     PIO pio = pio0;
-    uint offset = pio_add_program(pio, &clocked_input_program);
+    uint offset = pio_add_program(pio, &spi_slave_program);
     uint sm = pio_claim_unused_sm(pio, true);
-    clocked_input_program_init(pio, sm, offset, SPI_RX_PIN);
+    spi_slave_program_init(pio, sm, offset, SPI_RX_PIN, SPI_TX_PIN);
 
     uint8_t command = 0; // TODO reduce this
 
@@ -58,7 +60,13 @@ int main() {
 
     uint16_t angle = 0;
 
+    sleep_ms(5000);
     while (1){
+        if (pio_sm_is_tx_fifo_empty(pio, sm)){
+            pio_sm_put(pio, sm, 0xFFFF);
+            sleep_ms(100);
+            printf("sent data:%d", 0xFFFF);
+        }
         while (pio_sm_get_rx_fifo_level(pio, sm) > 0){
             command = pio_sm_get(pio, sm);
             switch (command){

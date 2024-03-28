@@ -44,22 +44,21 @@ async def index(request: Request):
 def gen():
     """Video streaming generator function."""
     global analyzer, line, colors, deviation, verdict
-    while True:
-        image = picam2.capture_array()
-        if line or colors:
-            output = cv2.zeros(image.shape, np.uint8)
-        else:
-            output = image
+    image = picam2.capture_array()
+    if line or colors:
+        output = cv2.zeros(image.shape, np.uint8)
+    else:
+        output = image
 
-        if line:
-            binary = analyzer.preprocessing(image)
-            deviation, out, con = find_centroid(binary)
-            np.biwise(output, out)
-        if colors:
-            verdict, out = find_colors(image)
-            np.biwise(output, out)
-        ret, jpeg = cv2.imencode('.jpg', output)
-        yield b'--frame\r\nContent-Type: image/jpeg\r\n\r\n' + jpeg.tobytes() + b'\r\n'
+    if line:
+        binary = analyzer.preprocessing(image)
+        deviation, out, con = find_centroid(binary)
+        np.biwise(output, out)
+    if colors:
+        verdict, out = find_colors(image)
+        np.biwise(output, out)
+    ret, jpeg = cv2.imencode('.jpg', output)
+    return b'--frame\r\nContent-Type: image/jpeg\r\n\r\n' + jpeg.tobytes() + b'\r\n'
 
 
 def motor_speed(direction: int, velocity: int):
@@ -109,6 +108,9 @@ async def websocket_endpoint(websocket: WebSocket):
 
 if __name__ == "__main__":
     import uvicorn
+    while True:
+        print(spi.readbytes(1))
+        sleep(1)
 
     uvicorn.run(app=app, host="0.0.0.0", port=8010)
 
