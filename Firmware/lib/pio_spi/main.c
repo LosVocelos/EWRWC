@@ -15,6 +15,20 @@
 // Set up a PIO state machine to shift in serial data, sampling with an
 // external clock, and push the data to the RX FIFO, 8 bits at a time.
 
+enum SPI_ADDRS : uint8_t
+{
+    UNUSED = 0x00,
+    USB_SDP_500MA = 0x01,
+    USB_CDP_1500MA = 0x02,
+    USB_DCP_3250MA = 0x03,
+    ADJUSTABLE_HIGH = 0x04,
+    UNKNOWN_ADAPTER = 0x05,
+    NON_STANDARD_ADAPTER = 0x06,
+    OTG_MODE = 0x07,
+    NOT_QUALIFIED_ADAPTER = 0x08,
+    POWERED_FROM_VBUS = 0x0B
+};
+
 #define STBY 6
 
 const uint8_t motor_pins[] = {4, 2, 1, 3}; // AIN1, AIN2, BIN1, BIN2
@@ -51,6 +65,7 @@ int main() {
     spi_slave_program_init(pio, sm, offset, SPI_RX_PIN, SPI_TX_PIN);
 
     uint8_t command = 0; // TODO reduce this
+    uint8_t data_out = 0xF0;
 
     uint8_t motors = 0;
     uint8_t servos = 0;
@@ -62,13 +77,13 @@ int main() {
 
     sleep_ms(5000);
     while (1){
-        if (pio_sm_is_tx_fifo_empty(pio, sm)){
-            pio_sm_put(pio, sm, 0xFFFF);
-            sleep_ms(100);
-            printf("sent data:%d", 0xFFFF);
+        if (pio_sm_get_tx_fifo_level(pio, sm) == 0){
+            pio_sm_put(pio, sm, data_out<<24);
+            sleep_ms(1);
+            printf("sent data:%d", data_out);
         }
         while (pio_sm_get_rx_fifo_level(pio, sm) > 0){
-            command = pio_sm_get(pio, sm);
+            command = pio_sm_get(pio, sm);  // !!! Reading only 8 bits from 32 bit buffer
             switch (command){
                 case 0x00: // Stop everything
                     gpio_put(STBY, 0);

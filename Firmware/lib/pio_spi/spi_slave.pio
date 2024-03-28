@@ -28,7 +28,7 @@ static inline void spi_slave_program_init(PIO pio, uint sm, uint offset, uint mo
     // Set the IN base pin to the provided `pin` parameter. This is the data
     // pin, and the next-numbered GPIO is used as the clock pin.
     sm_config_set_in_pins(&c, mosi);
-    sm_config_set_out_pins(&c, mosi, 1);
+    sm_config_set_out_pins(&c, miso, 1);
     // Set the pin directions to input at the PIO
     pio_sm_set_consecutive_pindirs(pio, sm, mosi, 1, false);
     pio_sm_set_consecutive_pindirs(pio, sm, miso, 1, true);

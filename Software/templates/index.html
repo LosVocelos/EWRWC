@@ -15,7 +15,7 @@
 
     <input type="range" id="velocity" min="-255" max="255" value="0" orient="vertical"
            oninput="sendslid(connection, 'rotation', 'velocity');">
-    <img src="video_feed">
+    <img src={{ video }}>
     <input type="range" id="rotation" min="-255" max="255" value="0"
            oninput="sendslid(connection, 'rotation', 'velocity');">
 

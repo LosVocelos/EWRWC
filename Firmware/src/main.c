@@ -106,13 +106,13 @@ int main() {
 
     // Start on Wednesday 13th January 2021 11:20:00
     datetime_t t = {
-        .year  = 2020,
+        .year  = 1970,
         .month = 01,
-        .day   = 13,
-        .dotw  = 3, // 0 is Sunday, so 3 is Wednesday
-        .hour  = 11,
-        .min   = 20,
-        .sec   = 50
+        .day   = 01,
+        .dotw  = 4, // 0 is Sunday, so 3 is Wednesday
+        .hour  = 0,
+        .min   = 0,
+        .sec   = 0
     };
 
     // Start the RTC
@@ -127,7 +127,7 @@ int main() {
         .dotw  = -1,
         .hour  = -1,
         .min   = -1,
-        .sec   = 00
+        .sec   = 10
     };
 
     rtc_set_alarm(&alarm, &alarm_callback);
