@@ -33,7 +33,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # Init spi
 spi = SpiDev()
 spi.open(0, 0)
-spi.max_speed_hz = 4000000
+spi.max_speed_hz = 100000
 
 # Init motors
 motors = Motors(spi)
@@ -119,6 +119,9 @@ async def websocket_endpoint(websocket: WebSocket):
 
 if __name__ == "__main__":
     import uvicorn
+    # while True:
+    #     print(spi.readbytes(1))
+    #     sleep(1)
 
     uvicorn.run(app=app, host="0.0.0.0", port=8010)
 
