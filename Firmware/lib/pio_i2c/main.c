@@ -20,7 +20,7 @@ int main() {
     PIO pio = pio0;
     uint sm = 0;
     uint offset = pio_add_program(pio, &i2c_program);
-    i2c_program_init(pio, sm, offset, PIN_SDA, PIN_SCL);
+    i2c_program_init(pio, sm, offset, PIN_SDA_BQ, PIN_SCL);
  
     printf("\nPIO I2C Bus Scan\n");
     printf("   0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F\n");

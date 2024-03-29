@@ -240,7 +240,7 @@ bool bq_isErrorPresent()
     return err > 0;
 }
 
-float bq_getVBAT()
+uint16_t bq_getVBAT()
 {
     bq_writeByte(REG2F_ADC_Function_Disable_0, 0b10001111);
     bq_writeByte(REG30_ADC_Function_Disable_1, 0b11111111);
@@ -250,7 +250,7 @@ float bq_getVBAT()
     bq_readBytes(REG3B_VBAT_ADC, &buf[0], 2);
     uint16_t v;
 
-    return (float)(((buf[0]) << 8) | buf[1]) / 1000;
+    return ((buf[0]) << 8) | buf[1];
 }
 
 void bq_setCellCount(uint8_t cells)
@@ -260,12 +260,12 @@ void bq_setCellCount(uint8_t cells)
     bq_writeByte(REG0A_Recharge_Control, currentConfig);
 }
 
-float bq_twosComplementToFloat(int16_t value)
+int16_t bq_twosComplementToInt(int16_t value)
 {
     int16_t mask = 0x8000; // Mask for the sign bit
     int16_t sign = value & mask;
     int16_t magnitude = value & ~mask;
-    float result = (float)(magnitude);
+    int16_t result = magnitude;
 
     if (sign != 0)
     {
@@ -276,24 +276,24 @@ float bq_twosComplementToFloat(int16_t value)
     return result;
 }
 
-float bq_getIBAT()
+int16_t bq_getIBAT()
 {
     bq_writeByte(REG14_Charger_Control_5, 0b00110110);
 
     uint8_t buf[2];
     bq_readBytes(REG33_IBAT_ADC, &buf[0], 2);
-    uint16_t val = (float)(((buf[0]) << 8) | buf[1]);
-    return bq_twosComplementToFloat(val);
+    int16_t val = ((buf[0]) << 8) | buf[1];
+    return val;
 }
 
-float bq_getIBUS()
+int16_t bq_getIBUS()
 {
     bq_writeByte(REG2E_ADC_Control, 0b10001100);
 
     uint8_t buf[2];
     bq_readBytes(REG31_IBUS_ADC, &buf[0], 2);
-    uint16_t val = (float)(((buf[0]) << 8) | buf[1]);
-    return bq_twosComplementToFloat(val);
+    int16_t val = ((buf[0]) << 8) | buf[1];
+    return val;
 }
 
 void bq_getVBATReadDone()

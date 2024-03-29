@@ -156,9 +156,9 @@ bool bq_isErrorPresent();
 
 void bq_setCellCount(uint8_t cells);
 
-float bq_getVBAT();
-float bq_getIBAT();
-float bq_getIBUS();
+uint16_t bq_getVBAT();
+int16_t bq_getIBAT();
+int16_t bq_getIBUS();
 
 void bq_resetPower();
 

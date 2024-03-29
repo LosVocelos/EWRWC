@@ -50,12 +50,14 @@ do_byte:
 bitloop:
     out pindirs, 1         [7] ; Serialise write data (all-ones if reading)
     nop             side 1 [2] ; SCL rising edge
+    nop                    [4] ; 
     in pins, 1             [7] ; Sample read data in middle of SCL pulse
     jmp x-- bitloop side 0 [7] ; SCL falling edge
 
     ; Handle ACK pulse
     out pindirs, 1         [7] ; On reads, we provide the ACK.
     nop             side 1 [7] ; SCL rising edge
+    nop                    [6] ; 
     jmp pin do_nack side 0 [2] ; Test SDA for ACK/NAK, fall through if ACK
     mov isr, null              ; Reset the input bit counter
 
@@ -90,7 +92,7 @@ static inline void i2c_program_init(PIO pio, uint sm, uint offset, uint pin_sda,
     sm_config_set_out_shift(&c, false, true, 16);
     sm_config_set_in_shift(&c, false, true, 8);
 
-    float div = (float)clock_get_hz(clk_sys) / (32 * 100000);
+    float div = (float)clock_get_hz(clk_sys) / (32 * 1000000);
     sm_config_set_clkdiv(&c, div);
 
     // Try to avoid glitching the bus while connecting the IOs. Get things set
