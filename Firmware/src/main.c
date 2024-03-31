@@ -184,7 +184,7 @@ int main() {
     ssd1306_show(&disp);
 
     uint8_t command = 0; // TODO reduce this
-    uint32_t data_out;
+    uint8_t data_out;
     int i_loop = 0;
     int j_loop = 0;
     int tmp = 0;
@@ -226,20 +226,18 @@ int main() {
         // SPI handeling
         if (pio_sm_get_tx_fifo_level(pio, sm_spi) == 0){
             if (j_loop == 0) {
-                data_out = 0xFF<<24;
-            }
-            if (j_loop == 1) {
+                data_out = 0xFF;
+            } else if (j_loop == 1) {
                 if (i_loop == 0){
-                    data_out = 0x6B<<24;
+                    data_out = 0x6B;
                 } else if (i_loop == 1){
-                    data_out = 0x6C<<24;
+                    data_out = 0x6C;
                 } else if (i_loop == 2){
-                    data_out = 0x6D<<24;
+                    data_out = 0x6D;
                 } else{
-                    data_out = 0x29<<24;
+                    data_out = 0x29;
                 }
-
-            if (j_loop == 2) {
+            } else if (j_loop == 2) {
                 if (i_loop == 0){
                     tmp = v_bat;
                 } else if (i_loop == 1){
@@ -250,10 +248,10 @@ int main() {
                     tmp = iDistance; 
                     i_loop = -1;
                 }
-                data_out = tmp>>8<<24;
+                data_out = tmp>>8;
                 i_loop++;
             } else {
-                data_out = tmp<<24;
+                data_out = tmp;
                 j_loop = -1;
             }
             j_loop++;
@@ -261,7 +259,7 @@ int main() {
             pio_sm_put(pio, sm_spi, data_out);
             DEBUG_PRINT_I("sent:", data_out, 16);
         }
-        while (pio_sm_get_rx_fifo_level(pio, sm_spi) > 1){
+        if (pio_sm_get_rx_fifo_level(pio, sm_spi) > 1){
             command = pio_sm_get(pio, sm_spi);
             DEBUG_PRINT_I("cmd:", command, 16);
             
