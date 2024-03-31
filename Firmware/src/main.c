@@ -265,6 +265,10 @@ int main() {
             
             // pio_sm_clear_fifos(pio, sm_spi);
             switch (command){
+                case 0x00: // Reserved
+
+                    break;
+
                 case 0xFF: // Stop everything
                     gpio_put(STBY, 0);
 
