@@ -49,7 +49,7 @@ char buff [32];
 
 int iDistance;
 
-//#define DEBUG
+#define DEBUG
 
 #ifdef DEBUG
 #define DEBUG_PRINT_S(str, data) {                  \
@@ -219,7 +219,7 @@ int main() {
         else{
             ssd1306_draw_string(&disp, 80, 20, 1, "....");
         }
-        DEBUG_PRINT_I("Distance (mm) = ", iDistance, 10);
+        //DEBUG_PRINT_I("Distance (mm) = ", iDistance, 10);
 
         // SPI handeling
         if (pio_sm_get_tx_fifo_level(pio, sm_spi) == 0){

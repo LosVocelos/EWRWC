@@ -104,7 +104,7 @@ async def spi_read(websocket: WebSocket):
             msg["value"] = spi.readbytes(2)
 
         await websocket.send(json.dumps(msg))
-        print(f"{deviation}:{verdict}")
+        print(msg)
 
 
 @app.get('/video_feed', response_class=StreamingResponse)
@@ -122,8 +122,7 @@ async def websocket_endpoint(websocket: WebSocket):
         com, *vals = data.split(":")
 
         if com == "get_data":
-            await websocket.send(json.dumps())
-            print(f"{deviation}:{verdict}")
+            await spi_read(websocket)
         elif com == "line":
             line = vals[0] != "0"
             print(line)
