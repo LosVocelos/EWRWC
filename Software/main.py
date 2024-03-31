@@ -88,18 +88,19 @@ async def spi_read(websocket: WebSocket):
     msg = {"id": "", "value": 0}
 
     spi.xfer([0x6C])
+    data_bytes = bytes(spi.readbytes(6))
     msg["id"] = "voltage"
-    msg["value"] = int.from_bytes(bytes(spi.readbytes(2)), "big")
+    msg["value"] = int.from_bytes(data_bytes[0:2], "big")
     await websocket.send_text(json.dumps(msg))
     print(msg)
 
     msg["id"] = "current"
-    msg["value"] = int.from_bytes(bytes(spi.readbytes(2)), "big")
+    msg["value"] = int.from_bytes(data_bytes[2:4], "big")
     await websocket.send_text(json.dumps(msg))
     print(msg)
 
     msg["id"] = "ch_stat"
-    msg["value"] = int.from_bytes(bytes(spi.readbytes(2)), "big")
+    msg["value"] = int.from_bytes(data_bytes[4:6], "big")
     await websocket.send_text(json.dumps(msg))
     print(msg)
 
