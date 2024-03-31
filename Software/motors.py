@@ -13,7 +13,7 @@ class Motors:
         self.period = (1000000 / 100) # Perion of PWM in us
 
     def __del__(self):
-        self.spi.xfer([0x00])
+        self.spi.xfer([0xFF])
 
         self.spi.close()
 

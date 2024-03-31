@@ -319,10 +319,14 @@ int main() {
 
                     pio_sm_put_blocking(pio, sm_spi, bat_stat<<16);
                     pio_sm_put_blocking(pio, sm_spi, bat_stat<<24);
+                    pio_sm_clear_fifos(pio, sm_spi);  // Clear buffers on start
+
+                    break;
 
                 case 0x29: // Read data from vl53l0x
                     pio_sm_put_blocking(pio, sm_spi, iDistance<<16);
                     pio_sm_put_blocking(pio, sm_spi, iDistance<<24);
+                    pio_sm_clear_fifos(pio, sm_spi);  // Clear buffers on start
 
                     break;
 

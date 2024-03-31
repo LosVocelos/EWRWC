@@ -3,7 +3,7 @@ var motors = [0, 0]
 var int
 var line = false
 var colors = false
-int = setInterval(() => { connection.send("get_data"); console.log("get_data") }, 500);
+int = setInterval(() => { connection.send("get_data"); console.log("get_data") }, 1000);
 
 function sendkeys(connection, keys){
     motors = [0, 0]
