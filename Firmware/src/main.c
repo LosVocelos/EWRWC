@@ -95,7 +95,7 @@ datetime_t alarm = {
     .dotw  = -1,
     .hour  = -1,
     .min   = -1,
-    .sec   = 15
+    .sec   = 05
 };
 
 ssd1306_t disp;
@@ -186,6 +186,8 @@ int main() {
     uint8_t command = 0; // TODO reduce this
     uint32_t data_out;
     int i_loop = 0;
+    int j_loop = 0;
+    int tmp = 0;
 
     uint8_t motors = 0;
     uint8_t servos = 0;
@@ -221,6 +223,44 @@ int main() {
         }
         //DEBUG_PRINT_I("Distance (mm) = ", iDistance, 10);
 
+        // SPI handeling
+        if (pio_sm_get_tx_fifo_level(pio, sm_spi) == 0){
+            if (j_loop == 0) {
+                data_out = 0xFF<<24;
+            }
+            if (j_loop == 1) {
+                if (i_loop == 0){
+                    data_out = 0x6B<<24;
+                } else if (i_loop == 1){
+                    data_out = 0x6C<<24;
+                } else if (i_loop == 2){
+                    data_out = 0x6D<<24;
+                } else{
+                    data_out = 0x29<<24;
+                }
+
+            if (j_loop == 2) {
+                if (i_loop == 0){
+                    tmp = v_bat;
+                } else if (i_loop == 1){
+                    tmp = i_bat;
+                } else if (i_loop == 2){
+                    tmp = bat_stat;
+                } else{
+                    tmp = iDistance; 
+                    i_loop = -1;
+                }
+                data_out = tmp>>8<<24;
+                i_loop++;
+            } else {
+                data_out = tmp<<24;
+                j_loop = -1;
+            }
+            j_loop++;
+
+            pio_sm_put(pio, sm_spi, data_out);
+            DEBUG_PRINT_I("sent:", data_out, 16);
+        }
         while (pio_sm_get_rx_fifo_level(pio, sm_spi) > 1){
             command = pio_sm_get(pio, sm_spi);
             DEBUG_PRINT_I("cmd:", command, 16);
@@ -308,26 +348,6 @@ int main() {
 
                     // printf("Servo B:%02x\n", angle);
                     
-                    break;
-
-                case 0x6C: // Read data from charger
-                    pio_sm_clear_fifos(pio, sm_spi);  // Clear buffers on start
-                    pio_sm_put_blocking(pio, sm_spi, v_bat<<16);
-                    pio_sm_put_blocking(pio, sm_spi, v_bat<<24);
-
-                    pio_sm_put_blocking(pio, sm_spi, i_bat<<16);
-                    pio_sm_put_blocking(pio, sm_spi, i_bat<<24);
-
-                    pio_sm_put_blocking(pio, sm_spi, bat_stat<<16);
-                    pio_sm_put_blocking(pio, sm_spi, bat_stat<<24);
-
-                    break;
-
-                case 0x29: // Read data from vl53l0x
-                    pio_sm_clear_fifos(pio, sm_spi);  // Clear buffers on start
-                    pio_sm_put_blocking(pio, sm_spi, iDistance<<16);
-                    pio_sm_put_blocking(pio, sm_spi, iDistance<<24);
-
                     break;
 
                 default:
