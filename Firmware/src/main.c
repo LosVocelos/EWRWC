@@ -95,7 +95,7 @@ datetime_t alarm = {
     .dotw  = -1,
     .hour  = -1,
     .min   = -1,
-    .sec   = 05
+    .sec   = 15
 };
 
 ssd1306_t disp;
@@ -256,7 +256,7 @@ int main() {
             }
             j_loop++;
 
-            pio_sm_put(pio, sm_spi, data_out);
+            pio_sm_put(pio, sm_spi, data_out<<24);
             DEBUG_PRINT_I("sent:", data_out, 16);
         }
         if (pio_sm_get_rx_fifo_level(pio, sm_spi) > 1){

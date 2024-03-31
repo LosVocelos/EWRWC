@@ -91,7 +91,7 @@ async def spi_read(websocket: WebSocket):
         for j in range(4):
             if spi.readbytes(1)[0] != 0xFF:
                 break
-        data_bytes = spi.readbytes(3)
+        data_bytes = spi.xfer([0, 0, 0], 4000000, 5000)
         print(data_bytes)
         if data_bytes[0] == 0x6B:
             msg["id"] = "voltage"
