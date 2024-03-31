@@ -9,6 +9,7 @@ from spidev import SpiDev
 from picamera2 import Picamera2
 import numpy as np
 import json
+import asyncio
 
 from motors import Motors
 from analyzer import Analyzer
@@ -89,13 +90,18 @@ async def spi_read(websocket: WebSocket):
     msg = {"id": "", "value": 0}
     while i < 4:
         for j in range(4):
+            await asyncio.sleep(0.005)
             if spi.readbytes(1)[0] == 0xFF:
                 print("yay")
                 break
         else:
             print("nooo")
             return
-        data_bytes = spi.xfer([0, 0, 0], 4000000, 5000)
+        data_bytes = spi.readbytes(3)
+        await asyncio.sleep(0.005)
+        data_bytes.append(spi.readbytes(3))
+        await asyncio.sleep(0.005)
+        data_bytes.append(spi.readbytes(3))
         print(data_bytes)
         if data_bytes[0] == 0x6B:
             msg["id"] = "voltage"
