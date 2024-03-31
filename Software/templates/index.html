@@ -13,20 +13,27 @@
 <body onunload="connection.close();">
     <h1>Educatinonal Wheeled Robot With Camera</h1>
 
-    <input type="range" id="velocity" min="-255" max="255" value="0" orient="vertical"
-           oninput="sendslid(connection, 'rotation', 'velocity');">
+    <input type="range" id="left" min="-255" max="255" value="0" orient="vertical"
+           oninput="sendslid(connection, 'left', 'right');">
     <img src={{ video }}>
-    <input type="range" id="rotation" min="-255" max="255" value="0"
-           oninput="sendslid(connection, 'rotation', 'velocity');">
+    <input type="range" id="right" min="-255" max="255" value="0" orient="vertical"
+           oninput="sendslid(connection, 'left', 'right');">
 
     <br>
-    <div>Velocity: <span id="vel_stat">0</span></div>
-    <div>Angle: <span id="angle">0</span></div>
-    <!--Line detection: <input type="checkbox" id="linechange" oninput="linechange(connection, this)">
-    <div>Deviation: <span id="deviation">0</span></div>
+    <div>Motors: <span id="left_m">0</span>, <span id="right_m">0</span></div>
     <br>
-    Color detection: <input type="checkbox" id="colorschange" oninput="colorschange(connection, this)">
-    <div>Verdict [color, size]: <span id="verdict">[0, 0]</span></div>-->
+    <div>Line detection: <input type="checkbox" id="linechange" oninput="linechange(connection, this)"></div>
+    <div>Deviation: <span id="deviation">0</span></div>
+    <div>Color detection: <input type="checkbox" id="colorschange" oninput="colorschange(connection, this)"></div>
+    <div>Verdict [color, size]: <span id="verdict">[0, 0]</span></div>
+    <br>
+    <div>Battery: </div>
+    <div>Voltage = <span id="voltage">0</span> mV</div>
+    <div>Current = <span id="current">0</span> mA</div>
+    <div><span id="ch_stat">0</span></div>
+    <br>
+    <div>VL53L0X: </div>
+    <div>Distance = <span id="distance">0</span> mm</div>
     
     <script>
         var connection = new WebSocket('ws:'+location.hostname+':8010/ws');
@@ -57,11 +64,9 @@
         });
 
         connection.onmessage = function(e){
-            console.log(e.data)
-            var deviation = document.getElementById('deviation')
-            var verdict = document.getElementById('verdict')
-            deviation.textContent = e.data.split(":")[0]
-            verdict.textContent = e.data.split(":")[1]
+            console.log(e.data);
+            var data_json = JSON.parse(e.data);
+            document.getElementById(data_json.id).textContent = data_json.value;
         }
 
     </script>

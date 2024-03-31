@@ -8,6 +8,7 @@ from time import sleep, time
 from spidev import SpiDev
 from picamera2 import Picamera2
 import numpy as np
+import json
 
 from motors import Motors
 from analyzer import Analyzer
@@ -73,18 +74,37 @@ def gen():
         yield b'--frame\r\nContent-Type: image/jpeg\r\n\r\n' + jpeg.tobytes() + b'\r\n'
 
 
-def motor_speed(direction: int, velocity: int):
-    lm = velocity
-    rm = velocity
-    lm += direction
-    rm -= direction
+def motor_speed(left: int, right: int):
 
-    motors.speed = (int(lm) * 256, int(rm) * 256)
+    motors.speed = (int(left) * 256, int(right) * 256)
 
     print("left motor ", motors.speed[0])
     print("right motor ", motors.speed[1])
-    print("lm ", lm)
-    print("rm ", rm, "\n")
+    print("lm ", left)
+    print("rm ", right, "\n")
+
+
+async def spi_read(websocket: WebSocket):
+    i = 0
+    msg = {"id": None, "value": None}
+    while i < 4:
+        if spi.readbytes(1) != 0xFF:
+            continue
+        if spi.readbytes(1) == 0x6B:
+            msg["id"] = "voltage"
+            msg["value"] = spi.readbytes(2)
+        elif spi.readbytes(1) == 0x6C:
+            msg["id"] = "current"
+            msg["value"] = spi.readbytes(2)
+        elif spi.readbytes(1) == 0x6D:
+            msg["id"] = "ch_stat"
+            msg["value"] = spi.readbytes(2)
+        elif spi.readbytes(1) == 0x29:
+            msg["id"] = "distance"
+            msg["value"] = spi.readbytes(2)
+
+        await websocket.send(json.dumps(msg))
+        print(f"{deviation}:{verdict}")
 
 
 @app.get('/video_feed', response_class=StreamingResponse)
@@ -102,7 +122,7 @@ async def websocket_endpoint(websocket: WebSocket):
         com, *vals = data.split(":")
 
         if com == "get_data":
-            await websocket.send_text(f"{deviation}:{verdict}")
+            await websocket.send(json.dumps())
             print(f"{deviation}:{verdict}")
         elif com == "line":
             line = vals[0] != "0"

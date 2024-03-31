@@ -1,32 +1,33 @@
 
-var direction = [0, 0]
+var motors = [0, 0]
 var int
 var line = false
 var colors = false
+int = setInterval(() => { connection.send("get_data"); console.log("get_data") }, 500);
 
 function sendkeys(connection, keys){
-    direction = [0, 0]
+    motors = [0, 0]
 
-    direction[1] += ("87" in keys) * 127;  // w
-    direction[1] -= ("83" in keys) * 127;  // s
-    direction[0] -= ("65" in keys) * 127;  // a
-    direction[0] += ("68" in keys) * 127;  // d
+    motors[0] += ("87" in keys) * 127 + ("68" in keys) * 63;  // w, d
+    motors[0] -= ("83" in keys) * 63 - ("65" in keys) * 127;  // s, a
+    motors[1] -= ("87" in keys) * 127 - ("68" in keys) * 63;  // w, d
+    motors[1] += ("83" in keys) * 63 + ("65" in keys) * 127;  // s, a
 
     // Do our thing
-    connection.send("motors:" + direction);
+    connection.send("motors:" + motors);
 }
 
 function sendslid(connection, id1, id2){
-    var rot = document.getElementById(id1);
-    var vel = document.getElementById(id2);
+    var left = document.getElementById(id1);
+    var right = document.getElementById(id2);
 
-    direction = [rot.value, vel.value];
+    motors = [left.value, right.value];
 
-    document.getElementById("vel_stat").innerHTML = vel.value;
-    document.getElementById("angle").innerHTML = rot.value;
+    document.getElementById("left_m").innerHTML = left.value;
+    document.getElementById("right_m").innerHTML = right.value;
 
     // Do our thing
-    connection.send("motors:" + direction);
+    connection.send("motors:" + motors);
 }
 
 function linechange(connection, linebox){
@@ -37,7 +38,6 @@ function linechange(connection, linebox){
         connection.send("line:0");
         line = false;
     }
-    updateint(connection);
 }
 
 function colorschange(connection, colorsbox){
@@ -47,14 +47,5 @@ function colorschange(connection, colorsbox){
     } else {
         connection.send("colors:0");
         colors = false;
-    }
-    updateint(connection);
-}
-
-function updateint(connection){
-    if (line || colors) {
-        int = setInterval(() => { connection.send("get_data"); console.log("get_data") }, 500);
-    } else {
-        clearInterval(int);
     }
 }
