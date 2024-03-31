@@ -15,6 +15,7 @@
 #include "spi_slave.pio.h"
 #include "bq25792.h"
 #include "ssd1306.h"
+#include "tof.h"
 
 // Set up a PIO state machine to shift in serial data, sampling with an
 // external clock, and push the data to the RX FIFO, 8 bits at a time.
@@ -44,6 +45,8 @@ float v_bat = 0.f;
 float i_bat = 0.f;
 
 char buff [32];
+
+int iDistance;
 
 #define DEBUG
 
@@ -116,7 +119,6 @@ static void alarm_callback(void) {
     ssd1306_draw_string(&disp, 80, 0, 1, buff);
     ssd1306_draw_string(&disp, 116, 0, 1, "mA");
     ssd1306_draw_string(&disp, 30, 8, 1, bq_getChargeStatus());
-    ssd1306_show(&disp);
 
     DEBUG_PRINT_I("Error present: ", bq_isErrorPresent(), 2);
     DEBUG_PRINT_I("Battery present: ", bq_isBatteryPresent(), 2);
@@ -172,6 +174,8 @@ int main() {
     uint offset_i2c = pio_add_program(pio_i2c, &i2c_program);
     i2c_program_init(pio_i2c, sm_i2c, offset_i2c, PIN_SDA, PIN_SCL);
 
+	tofInit(pio_i2c, sm_i2c, 0x29, 0);
+
     disp.external_vcc=false;
     ssd1306_init(&disp, 128, 64, 0x3C, pio_i2c, sm_i2c);
     ssd1306_clear(&disp);
@@ -199,6 +203,21 @@ int main() {
     pio_sm_clear_fifos(pio, sm_spi);  // Clear buffers on start
 
     while (1){
+        ssd1306_clear_square(&disp, 0, 16, 128, 48);
+
+        // VL53L0X handeling
+        ssd1306_draw_string(&disp, 14, 20, 1, "Distance =     mm");
+        iDistance = tofReadDistance();
+		if ((iDistance < 4096) && ( iDistance > 0)){// valid range?
+            itoa(iDistance, buff, 10);
+            ssd1306_draw_string(&disp, 80, 20, 1, buff);
+            DEBUG_PRINT_I("Distance (mm) = ", iDistance, 10);
+        }
+        else{
+            ssd1306_draw_string(&disp, 80, 20, 1, "....");
+        }
+
+        // SPI handeling
         if (pio_sm_get_tx_fifo_level(pio, sm_spi) == 0){
             pio_sm_put(pio, sm_spi, data_out<<24);
             DEBUG_PRINT_I("sent:", data_out, 16);
@@ -302,5 +321,6 @@ int main() {
             command = motors = servos = h1 = h2 = angle = 0; // Reset back to 0
             DEBUG_PRINT_S("--------------------", "\n");
         }
+        ssd1306_show(&disp);
     }
 }
