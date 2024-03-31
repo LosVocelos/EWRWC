@@ -246,7 +246,7 @@ int main() {
             
             // pio_sm_clear_fifos(pio, sm_spi);
             switch (command){
-                case 0x00: // Stop everything
+                case 0xFF: // Stop everything
                     gpio_put(STBY, 0);
 
                     for (int i = 0; i < (sizeof(motor_pins) / sizeof(motor_pins[0])) - 1; i++){ // Set all motor pins to 0
