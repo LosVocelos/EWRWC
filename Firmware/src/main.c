@@ -221,25 +221,6 @@ int main() {
         }
         //DEBUG_PRINT_I("Distance (mm) = ", iDistance, 10);
 
-        // SPI handeling
-        if (pio_sm_get_tx_fifo_level(pio, sm_spi) == 0){
-            if (i_loop == 0){
-                data_out = 0xFF6B << 16 | v_bat;
-                pio_sm_put(pio, sm_spi, data_out);
-            } else if (i_loop == 1){
-                data_out = 0xFF6C << 16 | i_bat;
-                pio_sm_put(pio, sm_spi, data_out);
-            } else if (i_loop == 2){
-                data_out = 0xFF6D << 16 | bat_stat;
-                pio_sm_put(pio, sm_spi, data_out);
-            } else{
-                data_out = 0xFF29 << 16 | iDistance; 
-                pio_sm_put(pio, sm_spi, data_out);
-                i_loop =- 1;
-            }
-            i_loop++;
-            DEBUG_PRINT_I("sent:", data_out, 16);
-        }
         while (pio_sm_get_rx_fifo_level(pio, sm_spi) > 1){
             command = pio_sm_get(pio, sm_spi);
             DEBUG_PRINT_I("cmd:", command, 16);
@@ -327,6 +308,22 @@ int main() {
 
                     // printf("Servo B:%02x\n", angle);
                     
+                    break;
+
+                case 0x6C: // Read data from charger
+                    pio_sm_put_blocking(pio, sm_spi, v_bat<<16);
+                    pio_sm_put_blocking(pio, sm_spi, v_bat<<24);
+
+                    pio_sm_put_blocking(pio, sm_spi, i_bat<<16);
+                    pio_sm_put_blocking(pio, sm_spi, i_bat<<24);
+
+                    pio_sm_put_blocking(pio, sm_spi, bat_stat<<16);
+                    pio_sm_put_blocking(pio, sm_spi, bat_stat<<24);
+
+                case 0x29: // Read data from vl53l0x
+                    pio_sm_put_blocking(pio, sm_spi, iDistance<<16);
+                    pio_sm_put_blocking(pio, sm_spi, iDistance<<24);
+
                     break;
 
                 default:
