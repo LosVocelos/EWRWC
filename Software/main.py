@@ -85,30 +85,29 @@ def motor_speed(left: int, right: int):
 
 
 async def spi_read(websocket: WebSocket):
-    i = 0
-    msg = {"id": "", "value": 10}
-    data_bytes = spi.readbytes(4)
-    print(data_bytes)
-    while i < 4:
-        for j in range(4):
-            if spi.readbytes(1)[0] != 0xFF:
-                break
-        data_bytes = spi.readbytes(3)
-        print(data_bytes)
-        if data_bytes[0] == 0x6B:
-            msg["id"] = "voltage"
-        elif data_bytes[0] == 0x6C:
-            msg["id"] = "current"
-        elif data_bytes[0] == 0x6D:
-            msg["id"] = "ch_stat"
-        elif data_bytes[0] == 0x29:
-            msg["id"] = "distance"
+    msg = {"id": "", "value": 0}
 
-        msg["value"] = int.from_bytes(bytes(data_bytes[1:]), "big")
+    spi.xfer([0x6C])
+    msg["id"] = "voltage"
+    msg["value"] = int.from_bytes(bytes(spi.readbytes(2)), "big")
+    await websocket.send_text(json.dumps(msg))
+    print(msg)
 
-        print(msg)
-        await websocket.send_text(json.dumps(msg))
-        i += 1
+    msg["id"] = "current"
+    msg["value"] = int.from_bytes(bytes(spi.readbytes(2)), "big")
+    await websocket.send_text(json.dumps(msg))
+    print(msg)
+
+    msg["id"] = "ch_stat"
+    msg["value"] = int.from_bytes(bytes(spi.readbytes(2)), "big")
+    await websocket.send_text(json.dumps(msg))
+    print(msg)
+
+    spi.xfer([0x29])
+    msg["id"] = "distance"
+    msg["value"] = int.from_bytes(bytes(spi.readbytes(2)), "big")
+    await websocket.send_text(json.dumps(msg))
+    print(msg)
 
 
 @app.get('/video_feed', response_class=StreamingResponse)
