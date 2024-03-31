@@ -86,8 +86,8 @@ def motor_speed(left: int, right: int):
 
 async def spi_read(websocket: WebSocket):
     i = 0
-    msg = {"id": 10, "value": 10}
-    while i < 10:
+    msg = {"id": "", "value": 10}
+    while i < 8:
         i += 1
         if spi.readbytes(1)[0] != 0xFF:
             continue
@@ -117,6 +117,7 @@ async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     # ser.open()
     while True:
+        global line, colors
         data = await websocket.receive_text()
         com, *vals = data.split(":")
 
