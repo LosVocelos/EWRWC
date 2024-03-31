@@ -90,7 +90,9 @@ async def spi_read(websocket: WebSocket):
     while i < 4:
         for j in range(4):
             if spi.readbytes(1)[0] == 0xFF:
-                return
+                break
+        else:
+            return
         data_bytes = spi.readbytes(3)
         print(data_bytes)
         if data_bytes[0] == 0x6B:
