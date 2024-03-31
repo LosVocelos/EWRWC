@@ -40,15 +40,16 @@ const uint8_t pwm_pins[] = {0, 5, 19, 20}; // PWMA, PWMB, SERVOA, SERVOB
 #define PWM_CLOCK_DIVIDE 25.f // Divide the PWM clock down to a more reasonable 1MHz to even be able to do 100hz but retain precision.
 #define WRAP 49999.f // calculated so it matches 100hz (original frequency/desired frequency) - 1
 
-float tresh = 0.f;
-float v_bat = 0.f;
-float i_bat = 0.f;
+int tresh = 0;
+int v_bat = 0;
+int i_bat = 0;
+uint8_t bat_stat = 0x0;
 
 char buff [32];
 
 int iDistance;
 
-#define DEBUG
+//#define DEBUG
 
 #ifdef DEBUG
 #define DEBUG_PRINT_S(str, data) {                  \
@@ -69,9 +70,9 @@ int iDistance;
     fputs("\n", stdout);                            \
 }
 #else
-#define DEBUG_PRINT_S(str) {}
+#define DEBUG_PRINT_S(str, data) {}
 #define DEBUG_PRINT_I(str, data, base) {}
-#define DEBUG_PRINT_F(str, data, after) {}
+#define DEBUG_PRINT_F(str, data, format) {}
 #endif
 
 
@@ -102,6 +103,7 @@ ssd1306_t disp;
 static void alarm_callback(void) {
     v_bat = bq_getVBAT();
     i_bat = bq_getIBAT();
+    bat_stat = bq_getChargeStatus0();
 
     if (v_bat <= tresh) {
         gpio_put(led1_pin, true);
@@ -123,9 +125,9 @@ static void alarm_callback(void) {
     DEBUG_PRINT_I("Error present: ", bq_isErrorPresent(), 2);
     DEBUG_PRINT_I("Battery present: ", bq_isBatteryPresent(), 2);
     DEBUG_PRINT_S("Charge status: ", bq_getChargeStatus());
-    DEBUG_PRINT_F("IBAT: ", i_bat, "%.3f");
-    DEBUG_PRINT_F("VBAT: ", v_bat, "%.3f");
-    DEBUG_PRINT_F("Tresh: ", tresh, "%.3f");
+    DEBUG_PRINT_I("IBAT: ", i_bat, 10);
+    DEBUG_PRINT_I("VBAT: ", v_bat, 10);
+    DEBUG_PRINT_I("Tresh: ", tresh, 10);
     DEBUG_PRINT_S("--------------------", "\n");
 
     rtc_set_datetime(&t);
@@ -166,7 +168,7 @@ int main() {
     i2c_program_init(pio, sm_i2c_bq, offset_i2c_bq, PIN_SDA_BQ, PIN_SCL_BQ);
     bq_init_config(pio, sm_i2c_bq, 18, 0);
 
-    tresh = 3.6f * bq_getCellCount();
+    tresh = 3600 * bq_getCellCount();
     v_bat = bq_getVBAT();
 
     PIO pio_i2c = pio1;
@@ -182,7 +184,8 @@ int main() {
     ssd1306_show(&disp);
 
     uint8_t command = 0; // TODO reduce this
-    uint8_t data_out = 0x08;
+    uint32_t data_out;
+    int i_loop = 0;
 
     uint8_t motors = 0;
     uint8_t servos = 0;
@@ -201,6 +204,7 @@ int main() {
     rtc_set_alarm(&alarm, &alarm_callback);
 
     pio_sm_clear_fifos(pio, sm_spi);  // Clear buffers on start
+    sleep_ms(5000);
 
     while (1){
         ssd1306_clear_square(&disp, 0, 16, 128, 48);
@@ -211,15 +215,29 @@ int main() {
 		if ((iDistance < 4096) && ( iDistance > 0)){// valid range?
             itoa(iDistance, buff, 10);
             ssd1306_draw_string(&disp, 80, 20, 1, buff);
-            DEBUG_PRINT_I("Distance (mm) = ", iDistance, 10);
         }
         else{
             ssd1306_draw_string(&disp, 80, 20, 1, "....");
         }
+        DEBUG_PRINT_I("Distance (mm) = ", iDistance, 10);
 
         // SPI handeling
         if (pio_sm_get_tx_fifo_level(pio, sm_spi) == 0){
-            pio_sm_put(pio, sm_spi, data_out<<24);
+            if (i_loop == 0){
+                data_out = 0xFF6B << 16 | v_bat;
+                pio_sm_put(pio, sm_spi, data_out);
+            } else if (i_loop == 1){
+                data_out = 0xFF6C << 16 | i_bat;
+                pio_sm_put(pio, sm_spi, data_out);
+            } else if (i_loop == 2){
+                data_out = 0xFF6D << 16 | bat_stat;
+                pio_sm_put(pio, sm_spi, data_out);
+            } else{
+                data_out = 0xFF29 << 16 | iDistance; 
+                pio_sm_put(pio, sm_spi, data_out);
+                i_loop =- 1;
+            }
+            i_loop++;
             DEBUG_PRINT_I("sent:", data_out, 16);
         }
         while (pio_sm_get_rx_fifo_level(pio, sm_spi) > 1){

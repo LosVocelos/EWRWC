@@ -54,8 +54,8 @@ async def index(request: Request):
 
 def gen():
     """Video streaming generator function."""
-    global analyzer, line, colors, deviation, verdict
     while True:
+        global analyzer, line, colors, deviation, verdict
         image = picam2.capture_array()
         if line or colors:
             output = cv2.zeros(image.shape, np.uint8)
