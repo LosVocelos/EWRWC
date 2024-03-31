@@ -89,7 +89,7 @@ async def spi_read(websocket: WebSocket):
     msg = {"id": None, "value": None}
     while i < 10:
         i += 1
-        if print(spi.readbytes(1)) != 0xFF:
+        if print(spi.readbytes(1)) != [0xFF]:
             continue
         if spi.readbytes(1) == 0x6B:
             msg["id"] = "voltage"
@@ -104,8 +104,8 @@ async def spi_read(websocket: WebSocket):
             msg["id"] = "distance"
             msg["value"] = spi.readbytes(2)
 
-        await websocket.send(json.dumps(msg))
         print(msg)
+        await websocket.send(json.dumps(msg))
 
 
 @app.get('/video_feed', response_class=StreamingResponse)
