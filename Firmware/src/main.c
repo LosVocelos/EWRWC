@@ -95,7 +95,7 @@ datetime_t alarm = {
     .dotw  = -1,
     .hour  = -1,
     .min   = -1,
-    .sec   = 05
+    .sec   = 15
 };
 
 ssd1306_t disp;

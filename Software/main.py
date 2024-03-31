@@ -34,7 +34,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # Init spi
 spi = SpiDev()
 spi.open(0, 0)
-spi.max_speed_hz = 100000
+spi.max_speed_hz = 4000000
 
 # Init motors
 motors = Motors(spi)
