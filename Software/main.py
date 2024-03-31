@@ -93,11 +93,11 @@ async def spi_read(websocket: WebSocket):
             continue
         if spi.readbytes(1)[0] == 0x6B:
             msg["id"] = "voltage"
-        elif spi.readbytes(1) == 0x6C:
+        elif spi.readbytes(1)[0] == 0x6C:
             msg["id"] = "current"
-        elif spi.readbytes(1) == 0x6D:
+        elif spi.readbytes(1)[0] == 0x6D:
             msg["id"] = "ch_stat"
-        elif spi.readbytes(1) == 0x29:
+        elif spi.readbytes(1)[0] == 0x29:
             msg["id"] = "distance"
 
         msg["value"] = int.from_bytes(bytes(spi.readbytes(2)), "big")
