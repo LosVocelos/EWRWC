@@ -224,7 +224,7 @@ int main() {
         //DEBUG_PRINT_I("Distance (mm) = ", iDistance, 10);
 
         // SPI handeling
-        if (pio_sm_get_tx_fifo_level(pio, sm_spi) == 0){
+        if (pio_sm_get_tx_fifo_level(pio, sm_spi) < 2){
             if (j_loop == 0) {
                 data_out = 0xFF;
             } else if (j_loop == 1) {
