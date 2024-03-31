@@ -97,11 +97,11 @@ async def spi_read(websocket: WebSocket):
         else:
             print("nooo")
             return
-        data_bytes = spi.readbytes(3)
+        data_bytes = spi.readbytes(1)
         await asyncio.sleep(0.005)
-        data_bytes.append(spi.readbytes(3))
+        data_bytes.append(spi.readbytes(1)[0])
         await asyncio.sleep(0.005)
-        data_bytes.append(spi.readbytes(3))
+        data_bytes.append(spi.readbytes(1)[0])
         print(data_bytes)
         if data_bytes[0] == 0x6B:
             msg["id"] = "voltage"
