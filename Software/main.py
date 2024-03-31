@@ -86,7 +86,7 @@ def motor_speed(left: int, right: int):
 
 async def spi_read(websocket: WebSocket):
     i = 0
-    msg = {"type": "message", "id": 10, "value": 10}
+    msg = {"id": 10, "value": 10}
     while i < 10:
         i += 1
         if spi.readbytes(1)[0] != 0xFF:
@@ -105,7 +105,7 @@ async def spi_read(websocket: WebSocket):
             msg["value"] = spi.readbytes(2)
 
         print(msg)
-        await websocket.send(json.dumps(msg))
+        await websocket.send_text(json.dumps(msg))
 
 
 @app.get('/video_feed', response_class=StreamingResponse)
