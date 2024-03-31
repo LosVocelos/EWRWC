@@ -248,10 +248,10 @@ int main() {
                     tmp = iDistance; 
                     i_loop = -1;
                 }
-                data_out = tmp>>8;
+                data_out = (uint8_t)((tmp>>8) & 0xFF);
                 i_loop++;
             } else {
-                data_out = tmp;
+                data_out = (uint8_t)(tmp & 0xFF);
                 j_loop = -1;
             }
             j_loop++;
