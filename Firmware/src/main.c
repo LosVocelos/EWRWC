@@ -206,7 +206,6 @@ int main() {
     rtc_set_alarm(&alarm, &alarm_callback);
 
     pio_sm_clear_fifos(pio, sm_spi);  // Clear buffers on start
-    sleep_ms(5000);
 
     while (1){
         ssd1306_clear_square(&disp, 0, 16, 128, 48);
@@ -224,8 +223,10 @@ int main() {
         //DEBUG_PRINT_I("Distance (mm) = ", iDistance, 10);
 
         // SPI handeling
-        if (pio_sm_get_tx_fifo_level(pio, sm_spi) < 3){
+        if (pio_sm_get_tx_fifo_level(pio, sm_spi) < 1){
+            for (int k = 0; k<4; k++){
             if (j_loop == 0) {
+                fputs("\n", stdout);
                 data_out = 0xFF;
             } else if (j_loop == 1) {
                 if (i_loop == 0){
@@ -256,10 +257,11 @@ int main() {
             }
             j_loop++;
 
-            pio_sm_put(pio, sm_spi, data_out<<24);
+            pio_sm_put(pio, sm_spi, (uint32_t)(data_out)<<24);
             DEBUG_PRINT_I("sent:", data_out, 16);
+            }
         }
-        if (pio_sm_get_rx_fifo_level(pio, sm_spi) > 1){
+        while (pio_sm_get_rx_fifo_level(pio, sm_spi) >= 1){
             command = pio_sm_get(pio, sm_spi);
             DEBUG_PRINT_I("cmd:", command, 16);
             
@@ -281,7 +283,8 @@ int main() {
                         pwm_set_gpio_level(pwm_gpio_to_slice_num(pwm_pins[i]), 0); // Just for good measure
                     }
 
-                    DEBUG_PRINT_S("Stop!", "");
+                    //DEBUG_PRINT_S("Stop!", "");
+                    puts("Stop!");
 
                     break;
 
