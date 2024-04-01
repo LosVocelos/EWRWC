@@ -35,7 +35,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # Init spi
 spi = SpiDev()
 spi.open(0, 0)
-spi.max_speed_hz = 4000000
+spi.max_speed_hz = 100_000
 
 # Init motors
 motors = Motors(spi)
@@ -61,6 +61,7 @@ def gen():
         image = picam2.capture_array()
         if line or colors:
             output = cv2.zeros(image.shape, np.uint8)
+            print("yepieee")
         else:
             output = image
 
@@ -86,34 +87,30 @@ def motor_speed(left: int, right: int):
 
 
 async def spi_read(websocket: WebSocket):
-    i = 0
     msg = {"id": "", "value": 0}
-    while i < 4:
-        for j in range(4):
-            ret = spi.readbytes(1)[0]
-            if ret == 0xFF:
-                print("yay")
-                break
-            print("read:", ret)
-        else:
-            print("nooo")
-            return
-        data_bytes = spi.readbytes(3)
-        print(data_bytes)
-        if data_bytes[0] == 0x6B:
-            msg["id"] = "voltage"
-        elif data_bytes[0] == 0x6C:
-            msg["id"] = "current"
-        elif data_bytes[0] == 0x6D:
-            msg["id"] = "ch_stat"
-        elif data_bytes[0] == 0x29:
-            msg["id"] = "distance"
+    for j in range(4):
+        ret = spi.readbytes(1)[0]
+        if ret == 0xFF:
+            print("yay")
+            break
+        print("read:", ret)
+    else:
+        print("nooo")
+        return
+    data_bytes = spi.xfer(motors.msg)
+    print(data_bytes)
+    if data_bytes[0] == 0x6B:
+        msg["id"] = "voltage"
+    elif data_bytes[0] == 0x6C:
+        msg["id"] = "current"
+    elif data_bytes[0] == 0x6D:
+        msg["id"] = "ch_stat"
+    elif data_bytes[0] == 0x29:
+        msg["id"] = "distance"
 
-        msg["value"] = int.from_bytes(bytes(data_bytes[1:]), "big")
-
-        print(msg)
-        await websocket.send_text(json.dumps(msg))
-        i += 1
+    msg["value"] = int.from_bytes(bytes(data_bytes[1:3]), "big")
+    print(msg)
+    await websocket.send_text(json.dumps(msg))
 
 
 @app.get('/video_feed', response_class=StreamingResponse)
@@ -156,4 +153,5 @@ if __name__ == "__main__":
 
     del picam2
     del motors
+    spi.close()
     print("Camera unloading...")

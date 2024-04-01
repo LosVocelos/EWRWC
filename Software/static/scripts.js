@@ -7,9 +7,9 @@ function sendkeys(connection, keys){
     motors = [0, 0]
 
     motors[0] += ("87" in keys) * 127 + ("68" in keys) * 63;  // w, d
-    motors[0] -= ("83" in keys) * 63 - ("65" in keys) * 127;  // s, a
+    motors[0] -= ("83" in keys) * 127 - ("65" in keys) * 63;  // s, a
     motors[1] += ("87" in keys) * 127 + ("65" in keys) * 63;  // w, a
-    motors[1] -= ("83" in keys) * 63 - ("68" in keys) * 127;  // s, d
+    motors[1] -= ("83" in keys) * 127 - ("68" in keys) * 63;  // s, d
 
     // Do our thing
     connection.send("motors:" + motors);
