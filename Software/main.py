@@ -35,7 +35,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # Init spi
 spi = SpiDev()
 spi.open(0, 0)
-spi.max_speed_hz = 100_000
+spi.max_speed_hz = 4_000_000
 
 # Init motors
 motors = Motors(spi)
@@ -63,7 +63,7 @@ def gen():
             output = cv2.zeros(image.shape, np.uint8)
             print("yepieee")
         else:
-            output = image
+            output = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
         if line:
             binary = analyzer.preprocessing(image)
