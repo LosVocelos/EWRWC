@@ -5,39 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="static/scripts.js"></script>
+    <!-- Importing Blockly -->
+    <script src="https://unpkg.com/blockly/blockly_compressed.js"></script>
+    <script src="https://unpkg.com/blockly/blocks_compressed.js"></script>
+    <script src="https://unpkg.com/blockly/javascript_compressed.js"></script>
+    <script src="https://unpkg.com/blockly/msg/en.js"></script>
+    <script src="../static/scripts.js"></script>
     <link rel="icon" href="static/Linux.ico">
-    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="../static/styles.css">
     <title>EWRWC</title>
 </head>
 <body onunload="connection.close();">
     <h1>Educatinonal Wheeled Robot With Camera</h1>
+    <table>
+    <tr>
 
-    <input type="range" id="left" min="-255" max="255" value="0" orient="vertical"
-           oninput="sendslid(connection, 'left', 'right');">
-    <img src={{ video }}>
-    <input type="range" id="right" min="-255" max="255" value="0" orient="vertical"
-           oninput="sendslid(connection, 'left', 'right');">
+    <td>
+        <input type="range" id="left" min="-255" max="255" value="0" orient="vertical"
+               oninput="sendslid(connection, 'left', 'right');">
+        <img src={{ video }}>
+        <input type="range" id="right" min="-255" max="255" value="0" orient="vertical"
+               oninput="sendslid(connection, 'left', 'right');">
 
-    <br>
-    <div>Motors: <span id="left_m">0</span>, <span id="right_m">0</span></div>
-    <br>
-    <div>Line detection: <input type="checkbox" id="linechange" oninput="linechange(connection, this)"></div>
-    <div>Deviation: <span id="deviation">0</span></div>
-    <div>Color detection: <input type="checkbox" id="colorschange" oninput="colorschange(connection, this)"></div>
-    <div>Verdict [color, size]: <span id="verdict">[0, 0]</span></div>
-    <br>
-    <div>Battery: </div>
-    <div>Voltage = <span id="voltage">0</span> mV</div>
-    <div>Current = <span id="current">0</span> mA</div>
-    <div><span id="ch_stat">0</span></div>
-    <br>
-    <div>VL53L0X: </div>
-    <div>Distance = <span id="distance">0</span> mm</div>
-    
+        <br>
+        <div>Motors: <span id="left_m">0</span>, <span id="right_m">0</span></div>
+        <br>
+        <div>Line detection: <input type="checkbox" id="linechange" oninput="linechange(connection, this)"></div>
+        <div>Deviation: <span id="deviation">0</span></div>
+        <div>Color detection: <input type="checkbox" id="colorschange" oninput="colorschange(connection, this)"></div>
+        <div>Verdict [color, size]: <span id="verdict">[0, 0]</span></div>
+        <br>
+        <div>Battery: </div>
+        <div>Voltage = <span id="voltage">0</span> mV</div>
+        <div>Current = <span id="current">0</span> mA</div>
+        <div><span id="ch_stat">0</span></div>
+        <br>
+        <div>VL53L0X: </div>
+        <div>Distance = <span id="distance">0</span> mm</div>
+    </td>
+
+    <td id="blocklyArea"></td>
+
+    </tr>
+    </table>
+    <div id="blocklyDiv" style="position: absolute"></div>
+
     <script>
         var connection = new WebSocket('ws:'+location.hostname+':8010/ws');
         var keysdown = {};
+
+        int = setInterval(() => { connection.send("get_data"); console.log("get_data") }, 1000);
 
         // keydown handler
         $(document).keydown(function(e){
@@ -70,5 +87,7 @@
         }
 
     </script>
+    <script src="../static/scripts_blockly.js"></script>
+
 </body>
 </html>
