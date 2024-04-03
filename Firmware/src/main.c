@@ -95,7 +95,7 @@ datetime_t alarm = {
     .dotw  = -1,
     .hour  = -1,
     .min   = -1,
-    .sec   = 15
+    .sec   = 05
 };
 
 ssd1306_t disp;
@@ -187,6 +187,7 @@ int main() {
     uint8_t data_out;
     int i_loop = 0;
     int j_loop = 0;
+    int k_loop = 0;
     int tmp = 0;
 
     uint8_t motors = 0;
@@ -208,22 +209,9 @@ int main() {
     pio_sm_clear_fifos(pio, sm_spi);  // Clear buffers on start
 
     while (1){
-        ssd1306_clear_square(&disp, 0, 16, 128, 48);
-
-        // VL53L0X handeling
-        ssd1306_draw_string(&disp, 14, 20, 1, "Distance =     mm");
-        iDistance = tofReadDistance();
-		if ((iDistance < 4096) && ( iDistance > 0)){// valid range?
-            itoa(iDistance, buff, 10);
-            ssd1306_draw_string(&disp, 80, 20, 1, buff);
-        }
-        else{
-            ssd1306_draw_string(&disp, 80, 20, 1, "....");
-        }
-        //DEBUG_PRINT_I("Distance (mm) = ", iDistance, 10);
-
         // SPI handeling
         if (pio_sm_get_tx_fifo_level(pio, sm_spi) < 1){
+            k_loop = 0;
             for (int k = 0; k<4; k++){
             if (j_loop == 0) {
                 fputs("\n", stdout);
@@ -262,6 +250,7 @@ int main() {
             }
         }
         while (pio_sm_get_rx_fifo_level(pio, sm_spi) >= 1){
+            k_loop = 0;
             command = pio_sm_get(pio, sm_spi);
             DEBUG_PRINT_I("cmd:", command, 16);
             
@@ -365,6 +354,23 @@ int main() {
             command = motors = servos = h1 = h2 = angle = 0; // Reset back to 0
             DEBUG_PRINT_S("--------------------", "\n");
         }
-        ssd1306_show(&disp);
+        if (k_loop > 1000) {
+            k_loop = 0;
+            ssd1306_clear_square(&disp, 0, 16, 128, 48);
+
+            // VL53L0X handeling
+            ssd1306_draw_string(&disp, 14, 20, 1, "Distance =     mm");
+            iDistance = tofReadDistance();
+            if ((iDistance < 4096) && ( iDistance > 0)){// valid range?
+                itoa(iDistance, buff, 10);
+                ssd1306_draw_string(&disp, 80, 20, 1, buff);
+            }
+            else{
+                ssd1306_draw_string(&disp, 80, 20, 1, "....");
+            }
+            //DEBUG_PRINT_I("Distance (mm) = ", iDistance, 10);
+                ssd1306_show(&disp);
+            }
+        k_loop++;
     }
 }

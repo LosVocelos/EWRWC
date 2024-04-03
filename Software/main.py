@@ -35,7 +35,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # Init spi
 spi = SpiDev()
 spi.open(0, 0)
-spi.max_speed_hz = 4_000_000
+spi.max_speed_hz = 400_000
 
 # Init motors
 motors = Motors(spi)
@@ -87,17 +87,22 @@ def motor_speed(left: int, right: int):
 
 
 async def spi_read(websocket: WebSocket):
+    message = motors.msg.copy()
+    spi.xfer(message[:2])
+
     msg = {"id": "", "value": 0}
-    for j in range(4):
-        ret = spi.readbytes(1)[0]
-        if ret == 0xFF:
-            print("yay")
-            break
-        print("read:", ret)
-    else:
-        print("nooo")
-        return
-    data_bytes = spi.xfer(motors.msg)
+    if message[1] == 0xFF:
+        for j in range(6):
+            ret = spi.readbytes(1)[0]
+            if ret == 0xFF:
+                print("yay")
+                break
+            print("read:", ret)
+        else:
+            print("nooo")
+            return
+
+    data_bytes = spi.xfer(message[2:6])
     print(data_bytes)
     if data_bytes[0] == 0x6B:
         msg["id"] = "voltage"
@@ -107,6 +112,7 @@ async def spi_read(websocket: WebSocket):
         msg["id"] = "ch_stat"
     elif data_bytes[0] == 0x29:
         msg["id"] = "distance"
+    spi.xfer(message[6:])
 
     msg["value"] = int.from_bytes(bytes(data_bytes[1:3]), "big")
     print(msg)

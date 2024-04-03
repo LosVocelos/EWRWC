@@ -22,6 +22,8 @@ add_executable(${PROJECT_NAME}
 # Setup PIO
 pico_generate_pio_header(${PROJECT_NAME}
     ${CMAKE_CURRENT_LIST_DIR}/lib/pio_i2c/i2c.pio
+)
+pico_generate_pio_header(${PROJECT_NAME}
     ${CMAKE_CURRENT_LIST_DIR}/lib/pio_spi/spi_slave.pio
 )
 

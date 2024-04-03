@@ -293,7 +293,7 @@ inline void ssd1306_bmp_show_image(ssd1306_t *p, const uint8_t *data, const long
 }
 
 void ssd1306_show(ssd1306_t *p) {
-    uint8_t payload[]= {0x00, 0x10, SET_PAGE_ADDR, 0, p->pages-1};
+    uint8_t payload[]= {SET_COL_ADDR, 0, p->width-1, SET_PAGE_ADDR, 0, p->pages-1};
     if(p->width==64) {
         payload[1]+=32;
         payload[2]+=32;

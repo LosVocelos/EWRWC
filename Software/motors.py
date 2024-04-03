@@ -31,6 +31,7 @@ class Motors:
     @speed.setter
     def speed(self, newSpeed):
         self._speed = newSpeed
+        self.msg[1] = 0b00000110
         if newSpeed[0] < 0:
             self.msg[1] += 0b00000100
         if newSpeed[1] < 0:
