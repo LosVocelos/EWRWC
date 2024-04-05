@@ -9,10 +9,9 @@ class Analyzer:
     def find_colors(self, frame, mask=None):  # If it's stupid and it works, it is not stupid.
         channels = [frame[:, :, 0], frame[:, :, 1], frame[:, :, 2]]
         for i in range(len(channels)):
-            if otsu:  # Pick which thresholding to use based on arguments
-                blur = channels[i]
-                # blur = cv2.GaussianBlur(channels[i], (3, 3), 0)  # Decided on with  C R E A T I V E  measures
-                ret, th = cv2.threshold(blur, 0, 255, cv2.THRESH_OTSU)
+            blur = channels[i]
+            # blur = cv2.GaussianBlur(channels[i], (3, 3), 0)  # Decided on with  C R E A T I V E  measures
+            ret, th = cv2.threshold(blur, 0, 255, cv2.THRESH_OTSU)
 
             kernel = np.ones((13, 13), np.uint8)
             opening = cv2.morphologyEx(th, cv2.MORPH_ERODE, kernel)  # For good measure :)
@@ -65,13 +64,7 @@ class Analyzer:
     def preprocessing(self, frame, kernel_size=(3, 3)):
         framegray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)  # Convert frame to grayscale
 
-        ret = None
-
-        if otsu:  # Pick which thresholding to use based on arguments
-            ret, th = cv2.threshold(framegray, 0, 255, cv2.THRESH_OTSU)
-        else:
-            th = cv2.adaptiveThreshold(framegray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY, 33, 4)
-
+        ret, th = cv2.threshold(framegray, 0, 255, cv2.THRESH_OTSU)
         inverted = cv2.bitwise_not(th)  # Invert frame
 
         kernel = np.ones(kernel_size, np.uint8)

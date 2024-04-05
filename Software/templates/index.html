@@ -11,7 +11,7 @@
     <script src="https://unpkg.com/blockly/javascript_compressed.js"></script>
     <script src="https://unpkg.com/blockly/msg/en.js"></script>
     <script src="../static/scripts.js"></script>
-    <link rel="icon" href="static/Linux.ico">
+    <link rel="icon" href="../static/Linux.ico">
     <link rel="stylesheet" href="../static/styles.css">
     <title>EWRWC</title>
 </head>
@@ -22,10 +22,12 @@
 
     <td>
         <input type="range" id="left" min="-255" max="255" value="0" orient="vertical"
-               oninput="sendslid(connection, 'left', 'right');">
+               oninput="sendslid(connection, 'left', 'right');"
+               onchange="this.value=0; sendslid(connection, 'left', 'right');">
         <img src={{ video }}>
         <input type="range" id="right" min="-255" max="255" value="0" orient="vertical"
-               oninput="sendslid(connection, 'left', 'right');">
+               oninput="sendslid(connection, 'left', 'right');"
+               onchange="this.value=0; sendslid(connection, 'left', 'right');">
 
         <br>
         <div>Motors: <span id="left_m">0</span>, <span id="right_m">0</span></div>
@@ -54,7 +56,7 @@
         var connection = new WebSocket('ws:'+location.hostname+':8010/ws');
         var keysdown = {};
 
-        int = setInterval(() => { connection.send("get_data"); console.log("get_data") }, 1000);
+        int = setInterval(() => { connection.send("get_data"); console.log("get_data") }, 500);
 
         // keydown handler
         $(document).keydown(function(e){

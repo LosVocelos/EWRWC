@@ -58,20 +58,21 @@ def gen():
     """Video streaming generator function."""
     while True:
         global analyzer, line, colors, deviation, verdict
-        image = picam2.capture_array()
+        image = picam2.capture_array()[:, :, :3]
         if line or colors:
-            output = cv2.zeros(image.shape, np.uint8)
+            output = np.zeros(image.shape, np.uint8)
             print("yepieee")
         else:
             output = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
         if line:
-            binary = analyzer.preprocessing(image)
+            binary, ret = analyzer.preprocessing(image)
             deviation, out, con = analyzer.find_centroid(binary)
-            np.biwise(output, out)
+            output += out
         if colors:
             verdict, out = analyzer.find_colors(image)
-            np.biwise(output, out)
+            output += out
+
         ret, jpeg = cv2.imencode('.jpg', output)
         yield b'--frame\r\nContent-Type: image/jpeg\r\n\r\n' + jpeg.tobytes() + b'\r\n'
 
@@ -88,21 +89,21 @@ def motor_speed(left: int, right: int):
 
 async def spi_read(websocket: WebSocket):
     message = motors.msg.copy()
-    spi.xfer(message[:2])
 
     msg = {"id": "", "value": 0}
-    if message[1] == 0xFF:
-        for j in range(6):
-            ret = spi.readbytes(1)[0]
-            if ret == 0xFF:
-                print("yay")
-                break
-            print("read:", ret)
-        else:
-            print("nooo")
-            return
+    for j in range(6):
+        await asyncio.sleep(0.01)
+        ret = spi.readbytes(1)[0]
+        if ret == 0xFF:
+            print("yay")
+            break
+        print("read:", ret)
+    else:
+        print("nooo")
+        return
 
-    data_bytes = spi.xfer(message[2:6])
+    await asyncio.sleep(0.04)
+    data_bytes = spi.xfer(message[:4])
     print(data_bytes)
     if data_bytes[0] == 0x6B:
         msg["id"] = "voltage"
@@ -112,7 +113,8 @@ async def spi_read(websocket: WebSocket):
         msg["id"] = "ch_stat"
     elif data_bytes[0] == 0x29:
         msg["id"] = "distance"
-    spi.xfer(message[6:])
+    await asyncio.sleep(0.04)
+    spi.xfer(message[4:])
 
     msg["value"] = int.from_bytes(bytes(data_bytes[1:3]), "big")
     print(msg)
