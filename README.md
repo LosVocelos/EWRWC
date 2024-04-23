@@ -62,12 +62,12 @@ TODO:
 - [x] Gather all sources
 - [x] Design the main PCB
 - [x] Complete the PCB
-- [ ] Design chassis
-- [ ] Print and ready the chassis
-- [ ] Complete the hardware
-- [ ] Write the software
-- [ ] Write the framework
-- [ ] Add some use for the camera
-- [ ] Write documentation
+- [x] Design chassis
+- [x] Print and ready the chassis
+- [x] Complete the hardware
+- [x] Write the software
+- [x] Write the framework
+- [x] Add some use for the camera
+- [x] Write documentation
 - [ ] Finalize
 - [ ] Play with it :)
