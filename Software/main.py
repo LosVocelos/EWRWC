@@ -9,6 +9,7 @@ from spidev import SpiDev
 from picamera2 import Picamera2
 import numpy as np
 import json
+from ctypes import c_short
 import asyncio
 
 from motors import Motors
@@ -35,7 +36,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # Init spi
 spi = SpiDev()
 spi.open(0, 0)
-spi.max_speed_hz = 400_000
+spi.max_speed_hz = 4_000_000
 
 # Init motors
 motors = Motors(spi)
@@ -80,6 +81,8 @@ def gen():
 def motor_speed(left: int, right: int):
 
     motors.speed = (int(left) * 256, int(right) * 256)
+    message = motors.msg.copy()
+    spi.xfer(message)
 
     print("left motor ", motors.speed[0])
     print("right motor ", motors.speed[1])
@@ -88,11 +91,8 @@ def motor_speed(left: int, right: int):
 
 
 async def spi_read(websocket: WebSocket):
-    message = motors.msg.copy()
-
     msg = {"id": "", "value": 0}
     for j in range(6):
-        await asyncio.sleep(0.01)
         ret = spi.readbytes(1)[0]
         if ret == 0xFF:
             print("yay")
@@ -102,8 +102,7 @@ async def spi_read(websocket: WebSocket):
         print("nooo")
         return
 
-    await asyncio.sleep(0.04)
-    data_bytes = spi.xfer(message[:4])
+    data_bytes = spi.readbytes(3)
     print(data_bytes)
     if data_bytes[0] == 0x6B:
         msg["id"] = "voltage"
@@ -113,10 +112,8 @@ async def spi_read(websocket: WebSocket):
         msg["id"] = "ch_stat"
     elif data_bytes[0] == 0x29:
         msg["id"] = "distance"
-    await asyncio.sleep(0.04)
-    spi.xfer(message[4:])
 
-    msg["value"] = int.from_bytes(bytes(data_bytes[1:3]), "big")
+    msg["value"] = c_short(int.from_bytes(bytes(data_bytes[1:3]), "big")).value
     print(msg)
     await websocket.send_text(json.dumps(msg))
 

@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="static/jquery-1.10.2.js"></script>
     <!-- Importing Blockly -->
-    <script src="https://unpkg.com/blockly/blockly_compressed.js"></script>
-    <script src="https://unpkg.com/blockly/blocks_compressed.js"></script>
-    <script src="https://unpkg.com/blockly/javascript_compressed.js"></script>
-    <script src="https://unpkg.com/blockly/msg/en.js"></script>
-    <script src="../static/scripts.js"></script>
-    <link rel="icon" href="../static/Linux.ico">
-    <link rel="stylesheet" href="../static/styles.css">
+    <script src="static/blockly/blockly_compressed.js"></script>
+    <script src="static/blockly/blocks_compressed.js"></script>
+    <script src="static/blockly/javascript_compressed.js"></script>
+    <script src="static/blockly/msg/en.js"></script>
+    <script src="static/scripts.js"></script>
+    <link rel="icon" href="static/Linux.ico">
+    <link rel="stylesheet" href="static/styles.css">
     <title>EWRWC</title>
 </head>
 <body onunload="connection.close();">
@@ -56,7 +56,7 @@
         var connection = new WebSocket('ws:'+location.hostname+':8010/ws');
         var keysdown = {};
 
-        int = setInterval(() => { connection.send("get_data"); console.log("get_data") }, 500);
+        int = setInterval(() => { connection.send("get_data"); console.log("get_data") }, 1000);
 
         // keydown handler
         $(document).keydown(function(e){

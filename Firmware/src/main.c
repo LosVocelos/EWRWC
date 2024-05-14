@@ -8,6 +8,7 @@
 #include <stdlib.h>
 
 #include "pico/stdlib.h"
+#include "pico/multicore.h"
 #include "hardware/rtc.h"
 #include "pico/util/datetime.h"
 #include "hardware/pio.h"
@@ -40,6 +41,8 @@ const uint8_t pwm_pins[] = {0, 5, 19, 20}; // PWMA, PWMB, SERVOA, SERVOB
 #define PWM_CLOCK_DIVIDE 25.f // Divide the PWM clock down to a more reasonable 1MHz to even be able to do 100hz but retain precision.
 #define WRAP 49999.f // calculated so it matches 100hz (original frequency/desired frequency) - 1
 
+const float scaler = (float)WRAP/65535; // so the speed can be scaled according to the wrap
+
 int tresh = 0;
 int v_bat = 0;
 int i_bat = 0;
@@ -49,7 +52,7 @@ char buff [32];
 
 int iDistance;
 
-#define DEBUG
+//#define DEBUG
 
 #ifdef DEBUG
 #define DEBUG_PRINT_S(str, data) {                  \
@@ -133,61 +136,17 @@ static void alarm_callback(void) {
     rtc_set_datetime(&t);
 }
 
-int main() {
-    stdio_init_all();
-
-    for (int i=0; i < 4; i++){ // Set all motor pins to OUT
-        gpio_init(motor_pins[i]);
-        gpio_set_dir(motor_pins[i], GPIO_OUT);
-    }
-
-    gpio_init(STBY); 
-    gpio_set_dir(STBY, GPIO_OUT);
-    gpio_init(led1_pin);
-    gpio_set_dir(led1_pin, GPIO_OUT);
-    gpio_init(led2_pin);
-    gpio_set_dir(led2_pin, GPIO_OUT);
-    gpio_put(led1_pin, false);
-    gpio_put(led2_pin, false);  
-
-    for (int i=0; i < 4; i++){ // Setup all PWM pins
-        gpio_set_function(pwm_pins[i], GPIO_FUNC_PWM);
-        pwm_set_clkdiv(pwm_gpio_to_slice_num(pwm_pins[i]), PWM_CLOCK_DIVIDE);
-        pwm_set_wrap(pwm_gpio_to_slice_num(pwm_pins[i]), WRAP);
-    }
-
-    const float scaler = (float)WRAP/65535; // so the speed can be scaled according to the wrap
+void core1_entry() {
 
     PIO pio = pio0;
     uint offset_spi = pio_add_program(pio, &spi_slave_program);
     uint sm_spi = pio_claim_unused_sm(pio, true);
     spi_slave_program_init(pio, sm_spi, offset_spi, SPI_RX_PIN, SPI_TX_PIN);
-    
-    uint sm_i2c_bq = pio_claim_unused_sm(pio, true);
-    uint offset_i2c_bq = pio_add_program(pio, &i2c_program);
-    i2c_program_init(pio, sm_i2c_bq, offset_i2c_bq, PIN_SDA_BQ, PIN_SCL_BQ);
-    bq_init_config(pio, sm_i2c_bq, 18, 0);
-
-    tresh = 3600 * bq_getCellCount();
-    v_bat = bq_getVBAT();
-
-    PIO pio_i2c = pio1;
-    uint sm_i2c = pio_claim_unused_sm(pio_i2c, true);
-    uint offset_i2c = pio_add_program(pio_i2c, &i2c_program);
-    i2c_program_init(pio_i2c, sm_i2c, offset_i2c, PIN_SDA, PIN_SCL);
-
-	tofInit(pio_i2c, sm_i2c, 0x29, 0);
-
-    disp.external_vcc=false;
-    ssd1306_init(&disp, 128, 64, 0x3C, pio_i2c, sm_i2c);
-    ssd1306_clear(&disp);
-    ssd1306_show(&disp);
 
     uint8_t command = 0; // TODO reduce this
     uint8_t data_out;
     int i_loop = 0;
     int j_loop = 0;
-    uint32_t k_loop = 0;
     int tmp = 0;
 
     uint8_t motors = 0;
@@ -200,18 +159,11 @@ int main() {
 
     uint16_t angle = 0;
 
-    // Start the RTC
-    rtc_init();
-    rtc_set_datetime(&t);
-
-    rtc_set_alarm(&alarm, &alarm_callback);
-
     pio_sm_clear_fifos(pio, sm_spi);  // Clear buffers on start
 
-    while (1){
+    while (1) {
         // SPI handeling
         if (pio_sm_get_tx_fifo_level(pio, sm_spi) < 1){
-            k_loop = 0;
             for (int k = 0; k<4; k++){
             if (j_loop == 0) {
                 fputs("\n", stdout);
@@ -348,20 +300,80 @@ int main() {
 
                     break;
             }
-            k_loop = 0;
 
             //pio_sm_clear_fifos(pio, sm_spi);  // Clear buffers on start
             command = motors = servos = h1 = h2 = angle = 0; // Reset back to 0
             DEBUG_PRINT_S("--------------------", "\n");
         }
-        if (k_loop > 1000000) {
+        // tight_loop_contents();
+    }
+}
+
+int main() {
+    stdio_init_all();
+
+    for (int i=0; i < 4; i++){ // Set all motor pins to OUT
+        gpio_init(motor_pins[i]);
+        gpio_set_dir(motor_pins[i], GPIO_OUT);
+    }
+
+    gpio_init(STBY); 
+    gpio_set_dir(STBY, GPIO_OUT);
+    gpio_init(led1_pin);
+    gpio_set_dir(led1_pin, GPIO_OUT);
+    gpio_init(led2_pin);
+    gpio_set_dir(led2_pin, GPIO_OUT);
+    gpio_put(led1_pin, false);
+    gpio_put(led2_pin, false);  
+
+    for (int i=0; i < 4; i++){ // Setup all PWM pins
+        gpio_set_function(pwm_pins[i], GPIO_FUNC_PWM);
+        pwm_set_clkdiv(pwm_gpio_to_slice_num(pwm_pins[i]), PWM_CLOCK_DIVIDE);
+        pwm_set_wrap(pwm_gpio_to_slice_num(pwm_pins[i]), WRAP);
+    }
+
+    PIO pio = pio0;
+    
+    uint sm_i2c_bq = pio_claim_unused_sm(pio, true);
+    uint offset_i2c_bq = pio_add_program(pio, &i2c_program);
+    i2c_program_init(pio, sm_i2c_bq, offset_i2c_bq, PIN_SDA_BQ, PIN_SCL_BQ);
+    bq_init_config(pio, sm_i2c_bq, 18, 0);
+
+    tresh = 3600 * bq_getCellCount();
+    v_bat = bq_getVBAT();
+
+    PIO pio_i2c = pio1;
+    uint sm_i2c = pio_claim_unused_sm(pio_i2c, true);
+    uint offset_i2c = pio_add_program(pio_i2c, &i2c_program);
+    i2c_program_init(pio_i2c, sm_i2c, offset_i2c, PIN_SDA, PIN_SCL);
+
+	tofInit(pio_i2c, sm_i2c, 0x29, 0);
+
+    disp.external_vcc=false;
+    ssd1306_init(&disp, 128, 64, 0x3C, pio_i2c, sm_i2c);
+    ssd1306_clear(&disp);
+    ssd1306_show(&disp);
+
+    multicore_launch_core1(core1_entry);
+
+    uint32_t k_loop = 0;
+
+    // Start the RTC
+    rtc_init();
+    rtc_set_datetime(&t);
+
+    rtc_set_alarm(&alarm, &alarm_callback);
+
+    while (1){
+        sleep_ms(1);
+        if (k_loop > 1000) {
             k_loop = 0;
             ssd1306_clear_square(&disp, 0, 16, 128, 48);
 
             // VL53L0X handeling
             ssd1306_draw_string(&disp, 14, 20, 1, "Distance =     mm");
-            //iDistance = tofReadDistance();
-            if ((iDistance < 4096) && ( iDistance > 0)){// valid range?
+            iDistance = tofReadDistance();
+            if ((iDistance < 4096) && (iDistance > 0)){// valid range?
                 itoa(iDistance, buff, 10);
                 ssd1306_draw_string(&disp, 80, 20, 1, buff);
             }
@@ -370,7 +382,7 @@ int main() {
             }
             //DEBUG_PRINT_I("Distance (mm) = ", iDistance, 10);
                 ssd1306_show(&disp);
-            }
+        }
         k_loop++;
     }
 }
