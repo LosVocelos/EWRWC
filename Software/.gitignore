@@ -1,2 +1,4 @@
 __pycache__
 .idea
+static/jquery-1.10.2.js
+static/blockly/*
