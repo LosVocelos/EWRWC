@@ -399,13 +399,13 @@ const toolbox = {
             TEXT: '',
           },
         },
-        {
+        /*{
           type: 'text_multiline',
           kind: 'block',
           fields: {
             TEXT: '',
           },
-        },
+        },*/
         {
           type: 'text_join',
           kind: 'block',
@@ -799,7 +799,7 @@ const toolbox = {
         },
       ],
     },
-    {
+    /*{
       kind: 'category',
       categorystyle: 'colour_category',
       name: 'Colour',
@@ -876,7 +876,7 @@ const toolbox = {
           },
         },
       ],
-    },
+    },*/
     {
       kind: 'sep',
     },
@@ -891,6 +891,55 @@ const toolbox = {
       name: 'Functions',
       custom: 'PROCEDURE',
       categorystyle: 'procedure_category',
+    },
+    {
+      kind: 'sep',
+    },
+    {
+      kind: 'category',
+      name: 'Motors',
+      categorystyle: 'motors_category',
+      contents: [
+        {
+          type: 'lists_indexOf',
+          kind: 'block',
+          fields: {
+            END: 'FIRST',
+          },
+          inputs: {
+            VALUE: {
+              block: {
+                type: 'variables_get',
+                fields: {
+                  VAR: {
+                    name: 'list',
+                  },
+                },
+              },
+            },
+          },
+        },
+        {
+          type: 'lists_getIndex',
+          kind: 'block',
+          fields: {
+            MODE: 'GET',
+            WHERE: 'FROM_START',
+          },
+          inputs: {
+            VALUE: {
+              block: {
+                type: 'variables_get',
+                fields: {
+                  VAR: {
+                    name: 'list',
+                  },
+                },
+              },
+            },
+          },
+        },
+      ],
     },
   ],
 };
