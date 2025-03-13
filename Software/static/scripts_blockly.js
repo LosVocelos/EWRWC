@@ -8,7 +8,6 @@
  * @fileoverview Dark theme test.
  */
 
-
 /**
  * Dark theme.
  */
@@ -947,10 +946,30 @@ const toolbox = {
 
 var blocklyArea = document.getElementById('blocklyArea');
 var blocklyDiv = document.getElementById('blocklyDiv');
-var demoWorkspace = Blockly.inject(blocklyDiv, {
+var pythonDiv = document.getElementById('python');
+var workspace = Blockly.inject(blocklyDiv, {
     toolbox: toolbox,
     theme: theme,
 });
+
+const supportedEvents = new Set([
+  Blockly.Events.BLOCK_CHANGE,
+  Blockly.Events.BLOCK_CREATE,
+  Blockly.Events.BLOCK_DELETE,
+  Blockly.Events.BLOCK_MOVE,
+]);
+
+function updateCode(event) {
+  if (workspace.isDragging()) return; // Don't update while changes are happening.
+  if (!supportedEvents.has(event.type)) return;
+
+  const code = python.pythonGenerator.workspaceToCode(workspace);
+  pythonDiv.innerHTML = code;
+  CodeMirror.runMode(code, 'python', pythonDiv);
+  CodeMirror
+}
+
+workspace.addChangeListener(updateCode);
 
 var onresize = function (e) {
     // Compute the absolute coordinates and dimensions of blocklyArea.
@@ -967,7 +986,7 @@ var onresize = function (e) {
     blocklyDiv.style.top = y + 'px';
     blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
     blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
-    Blockly.svgResize(demoWorkspace);
+    Blockly.svgResize(workspace);
 
     console.log('resize');
 };
