@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="static/jquery-1.10.2.js"></script>
+    <script src="static/lib/jquery-1.10.2.min.js"></script>
     <!-- Importing Blockly -->
-    <script src="static/blockly/blockly_compressed.js"></script>
-    <script src="static/blockly/blocks_compressed.js"></script>
-    <script src="static/blockly/python_compressed.js"></script>
-    <script src="static/blockly/msg/en.js"></script>
-    <script src="static/scripts.js"></script>
+    <script src="static/lib/blockly/blockly_compressed.js"></script>
+    <script src="static/lib/blockly/blocks_compressed.js"></script>
+    <script src="static/lib/blockly/python_compressed.js"></script>
+    <script src="static/lib/blockly/msg/en.js"></script>
     <link rel="icon" href="static/Linux.ico">
     <link rel="stylesheet" href="static/styles.css">
     <!--TODO: localize!-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.61.0/theme/material-darker.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.61.0/addon/runmode/runmode-standalone.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/codemirror@5.61.0/mode/python/python.min.js"></script>
+    <script src="static/lib/codemirror/lib/codemirror.js"></script>
+    <script src="static/lib/codemirror/addon/runmode/runmode.js"></script>
+    <link rel="stylesheet" href="static/lib/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="static/lib/codemirror/theme/material-darker.css">
+    <script src="static/lib/codemirror/mode/python/python.js"></script>
     <title>EWRWC</title>
 </head>
 <body onunload="connection.close();">
@@ -53,11 +54,12 @@
         <pre style="margin-left: 10px"><code id="python" class="cm-s-material-darker"></code></pre>
     </td>
 
-    <td id="blocklyArea"></td>
+    <td id="container"><textarea id="python-in"></textarea></td>
 
     </tr>
     </table>
     <div id="blocklyDiv" style="position: absolute"></div>
+    <iframe id="pythonDiv" style="position: absolute; display: none"></iframe>
 
     <script>
         var connection = new WebSocket('ws:'+location.hostname+':8010/ws');
@@ -114,7 +116,9 @@
         });
 
     </script>
-    <script src="../static/scripts_blockly.js"></script>
+    <script src="static/scripts.js"></script>
+    <script src="static/scripts_blockly.js"></script>
+    <script src="static/python_editor.js"></script>
 
 </body>
 </html>

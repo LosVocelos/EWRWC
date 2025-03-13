@@ -2,7 +2,6 @@ from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
 from fastapi.responses import HTMLResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from random import randint
 import cv2
 from time import sleep, time
 import numpy as np
@@ -101,7 +100,11 @@ async def websocket_endpoint(websocket: WebSocket):
     # ser.open()
     while True:
         global line, colors
-        data = await websocket.receive_text()
+        try:
+            data = await websocket.receive_text()
+        except WebSocketDisconnect:
+            print("Disconnected")
+            return
         com, *vals = data.split(":")
 
         if com == "get_data":
@@ -127,5 +130,5 @@ if __name__ == "__main__":
 
     uvicorn.run(app=app, host="0.0.0.0", port=8010)
 
-    del cam
+    cam.release()
     print("Camera unloading...")

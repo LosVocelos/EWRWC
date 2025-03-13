@@ -972,9 +972,9 @@ Blockly.defineBlocksWithJsonArray([
   }
 ]);
 
-var blocklyArea = document.getElementById('blocklyArea');
+var blocklyArea = document.getElementById('container');
 var blocklyDiv = document.getElementById('blocklyDiv');
-var pythonDiv = document.getElementById('python');
+var pythonShow = document.getElementById('python');
 var workspace = Blockly.inject(blocklyDiv, {
     toolbox: toolbox,
     theme: theme,
@@ -1007,8 +1007,7 @@ function updateCode(event) {
 
   const code = python.pythonGenerator.workspaceToCode(workspace);
   pythonDiv.innerHTML = code;
-  CodeMirror.runMode(code, 'python', pythonDiv);
-  CodeMirror
+  CodeMirror.runMode(code, 'python', pythonShow);
 }
 
 workspace.addChangeListener(updateCode);

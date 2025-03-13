@@ -47,4 +47,3 @@ function colorschange(connection, colorsbox){
         colors = false;
     }
 }
-
