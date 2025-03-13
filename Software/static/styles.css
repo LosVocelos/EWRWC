@@ -22,7 +22,7 @@ h1
 
 table
 {
-    height: 100%;
+    height: calc(100vh - 60px);
     width: 100%;
     vertical-align: top;
 }

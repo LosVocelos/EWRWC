@@ -943,6 +943,34 @@ const toolbox = {
   ],
 };
 
+Blockly.defineBlocksWithJsonArray([
+  // Block for colour picker.
+  {
+    "type": "motors_set",
+    "message0": "set motors speed %1, %2",
+    "args0": [
+      {
+        "type": "number",
+        "name": "COLOUR",
+        "colour": "#ff0000"
+      }
+    ],
+    "output": "Colour",
+    "helpUrl": "%{BKY_COLOUR_PICKER_HELPURL}",
+    "style": "colour_blocks",
+    "tooltip": "%{BKY_COLOUR_PICKER_TOOLTIP}",
+    "extensions": ["parent_tooltip_when_inline"]
+  },
+  // Block for random colour.
+  {
+    "type": "motors_set_left",
+    "message0": "%{BKY_COLOUR_RANDOM_TITLE}",
+    "output": "Colour",
+    "helpUrl": "%{BKY_COLOUR_RANDOM_HELPURL}",
+    "style": "colour_blocks",
+    "tooltip": "%{BKY_COLOUR_RANDOM_TOOLTIP}"
+  }
+]);
 
 var blocklyArea = document.getElementById('blocklyArea');
 var blocklyDiv = document.getElementById('blocklyDiv');
@@ -950,6 +978,20 @@ var pythonDiv = document.getElementById('python');
 var workspace = Blockly.inject(blocklyDiv, {
     toolbox: toolbox,
     theme: theme,
+    grid:
+        {spacing: 40,
+        length: 3,
+        colour: '#555',
+        snap: true},
+    zoom:
+        {controls: true,
+        wheel: true,
+        startScale: 1.0,
+        maxScale: 3,
+        minScale: 0.3,
+        scaleSpeed: 1.1,
+        pinch: true},
+    trashcan: true,
 });
 
 const supportedEvents = new Set([

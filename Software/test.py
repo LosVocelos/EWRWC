@@ -73,7 +73,7 @@ def motor_speed(left: int, right: int):
 async def spi_read(websocket: WebSocket):
     msg = {"id": "", "value": 0}
 
-    data_bytes = [0xFF, 0xFF, 0xFF]
+    data_bytes = [0x29, 0xFF, 0xFF]
     print(data_bytes)
     if data_bytes[0] == 0x6B:
         msg["id"] = "voltage"
