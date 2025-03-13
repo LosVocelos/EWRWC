@@ -11,7 +11,7 @@ var editor = CodeMirror.fromTextArea(document.getElementById("python-in"), {
 
 
 var containerArea = document.getElementById('container');
-var pythonDiv = document.getElementById('pythonDiv');
+var pythonDiv = document.getElementsByClassName('CodeMirror')[0];
 function onresize(e){
     // Compute the absolute coordinates and dimensions of containerArea.
     var element = containerArea;

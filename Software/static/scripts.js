@@ -2,6 +2,59 @@ var motors = [0, 0]
 var int
 var line = false
 var colors = false
+var blockly_edit = true
+
+var connection = new WebSocket('ws:'+location.hostname+':8010/ws');
+var keysdown = {};
+var wasd_ctrl = false
+
+int = setInterval(() => { connection.send("get_data"); console.log("get_data") }, 1000);
+
+// keydown handler
+$(document).keydown(function(e){
+    // Do we already know it's down?
+    if (keysdown[e.keyCode] || !wasd_ctrl) {
+        // Ignore it
+        return;
+    }
+
+    // Remember it's down
+    keysdown[e.keyCode] = true;
+
+    // Do our thing
+    sendkeys(connection, keysdown);
+});
+
+// keyup handler
+$(document).keyup(function(e){
+    if (!wasd_ctrl) {
+        // Ignore it
+        return;
+    }
+    // Remove this key from the map
+    delete keysdown[e.keyCode];
+
+    // Do our thing
+    sendkeys(connection, keysdown);
+});
+
+connection.onmessage = function(e){
+    console.log(e.data);
+    var data_json = JSON.parse(e.data);
+    document.getElementById(data_json.id).textContent = data_json.value;
+}
+
+$(document).on("click", function (e) {
+    var target = $(e.target);
+    if(target.attr('id') === "camera_feed"){
+        wasd_ctrl = true
+    }else if(wasd_ctrl){
+        wasd_ctrl = false
+        keysdown = {};
+        // Do our thing
+        sendkeys(connection, keysdown);
+    }
+});
 
 function sendkeys(connection, keys){
     motors = [0, 0]
@@ -45,5 +98,19 @@ function colorschange(connection, colorsbox){
     } else {
         connection.send("colors:0");
         colors = false;
+    }
+}
+
+function change_editor(button){
+    if (blockly_edit) {
+        blockly_edit = false;
+        document.getElementsByClassName('CodeMirror')[0].style.display = "initial";
+        document.getElementById('blocklyDiv').style.display = "none";
+        button.textContent = "Blockly editor";
+    } else {
+        blockly_edit = true;
+        document.getElementsByClassName('CodeMirror')[0].style.display = "none";
+        document.getElementById('blocklyDiv').style.display = "initial";
+        button.textContent = "Python editor";
     }
 }

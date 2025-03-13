@@ -974,7 +974,7 @@ Blockly.defineBlocksWithJsonArray([
 
 var blocklyArea = document.getElementById('container');
 var blocklyDiv = document.getElementById('blocklyDiv');
-var pythonShow = document.getElementById('python');
+var pythonShow = document.getElementById('python-show');
 var workspace = Blockly.inject(blocklyDiv, {
     toolbox: toolbox,
     theme: theme,
@@ -1006,7 +1006,6 @@ function updateCode(event) {
   if (!supportedEvents.has(event.type)) return;
 
   const code = python.pythonGenerator.workspaceToCode(workspace);
-  pythonDiv.innerHTML = code;
   CodeMirror.runMode(code, 'python', pythonShow);
 }
 
