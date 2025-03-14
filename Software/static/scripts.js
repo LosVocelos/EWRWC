@@ -104,13 +104,13 @@ function colorschange(connection, colorsbox){
 function change_editor(button){
     if (blockly_edit) {
         blockly_edit = false;
-        document.getElementsByClassName('CodeMirror')[0].style.display = "initial";
-        document.getElementById('blocklyDiv').style.display = "none";
+        $('.CodeMirror').show();
+        $('.blocklyContents').hide();
         button.textContent = "Blockly editor";
     } else {
         blockly_edit = true;
-        document.getElementsByClassName('CodeMirror')[0].style.display = "none";
-        document.getElementById('blocklyDiv').style.display = "initial";
+        $('.CodeMirror').hide();
+        $('.blocklyContents').show();
         button.textContent = "Python editor";
     }
 }

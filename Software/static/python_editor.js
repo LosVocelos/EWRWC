@@ -8,6 +8,7 @@ var editor = CodeMirror.fromTextArea(document.getElementById("python-in"), {
     autoCloseTags: true,
     mode: "python",
 });
+var pythonDiv = document.getElementsByClassName('CodeMirror')[0];
 
 
 var containerArea = document.getElementById('container');

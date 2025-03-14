@@ -27,6 +27,7 @@
     <td class="main"></td>
     <td class="main" style="height: 40px; text-align: right">
         <button style="height: 40px;" onclick="change_editor(this);">Python editor</button>
+        <button style="height: 40px;" onclick=";">Upload & Run</button>
     </td>
     </tr>
     <tr>
@@ -70,13 +71,14 @@
         </table>
         <hr>
 
-        <div>Python code: </div>
-        <pre style="margin-left: 10px"><code id="python-show" class="cm-s-material-darker"></code></pre>
+        <div class="blocklyContents"> Python code:<br>
+            <pre style="margin-left: 10px"><code id="python-show" class="cm-s-material-darker"></code></pre>
+        </div>
     </td>
 
     <td class="main" id="container">
-        <textarea id="python-in" style="position: absolute"></textarea>
-        <div id="blocklyDiv" style="position: absolute"></div>
+        <textarea id="python-in" class="pythonContents" style="position: absolute"></textarea>
+        <div id="blocklyDiv" class="blocklyContents" style="position: absolute"></div>
         <iframe id="pythonDiv" style="position: absolute; display: none"></iframe>
     </td>
     </tr>
